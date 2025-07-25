@@ -1,0 +1,92 @@
+/* Background animation with gradient */
+.hero {
+  background: linear-gradient(45deg, #ff0000, #000000, #ffffff);
+  background-size: 400% 400%;
+  animation: gradientBackground 15s ease infinite;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes gradientBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Styling the form elements */
+.hero .container {
+  max-width: 90%; /* Increase the container width to 90% of the screen */
+  width: 90%; /* Set the form's width to 90% of the container */
+}
+
+.form-control {
+  padding: 12px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 1px solid #ff0000;
+  color: black;
+  width: 100%; /* Make the form elements stretch across the available width */
+}
+
+.form-control:focus {
+  border-color: #000000;
+  box-shadow: 0 0 5px #ff0000;
+}
+
+button {
+  padding: 12px 25px;
+  border: none;
+  transition: all 0.3s ease-in-out;
+  width: 100%; /* Make button stretch to full width */
+}
+
+button:hover {
+  background-color: #ff0000;
+  color: white;
+  transform: scale(1.1);
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Spacing between form elements */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.mt-3 {
+  margin-top: 20px;
+}
+
+/* Text colors */
+.text-white {
+  color: #ffffff;
+}
+
+.text-danger {
+  color: #ff0000;
+}
+
+/* Responsive design adjustments for mobile */
+@media (max-width: 767px) {
+  .hero .container {
+    width: 100%; /* Ensure the container takes full width on small screens */
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+  }
+}
