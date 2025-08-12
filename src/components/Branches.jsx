@@ -39,7 +39,6 @@ const Branches ={
                     "link": "https://link-to-maths-syllabus"
                   }
                 },
-
                 {
                   "subjectName": "Chemistry",
                   "notesPage": "https://link-to-chemistry-notes",
