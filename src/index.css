@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==== Global resets ==== */
+html, body {
+  @apply bg-gray-50 text-gray-800 font-sans;
+  scroll-behavior: smooth;
+}
+
+/* ==== Hero Gradient Animation ==== */
+.hero {
+  background: linear-gradient(45deg, #ff0000, #000000, #ffffff);
+  background-size: 400% 400%;
+  animation: gradientBackground 15s ease infinite;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes gradientBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ==== Shared form styling ==== */
+select, input, textarea {
+  @apply rounded-md border border-gray-300 px-4 py-3 outline-none focus:border-red-600 focus:ring-2 focus:ring-red-600;
+}
+
+button {
+  @apply transition duration-200;
+}
+
+button:focus-visible {
+  outline: 2px solid theme('colors.red.600');
+  outline-offset: 2px;
+}

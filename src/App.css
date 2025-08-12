@@ -1,0 +1,32 @@
+/* ===== App Container ===== */
+.App {
+  @apply min-h-screen flex flex-col;
+}
+
+/* ===== Navbar Shadow & Sticky ===== */
+.navbar-shadow {
+  @apply shadow-md sticky top-0 z-50;
+}
+
+/* ===== Utility Text Colors ===== */
+.text-danger {
+  color: #dc2626; /* Tailwind red-600 */
+}
+
+.text-primary {
+  color: #1E40AF; /* Tailwind blue-800 */
+}
+
+/* ===== Background Helpers ===== */
+.bg-primary {
+  background-color: #1E40AF;
+}
+
+.bg-accent {
+  background-color: #10B981; /* Tailwind emerald-500 */
+}
+
+/* ===== Card Hover Effect ===== */
+.card-hover {
+  @apply transition-transform duration-200 hover:scale-[1.02] hover:shadow-lg;
+}
