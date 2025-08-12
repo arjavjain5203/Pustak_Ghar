@@ -8,6 +8,15 @@
   justify-content: center;
   align-items: center;
 }
+[data-theme="dark"] .hero {
+  background: linear-gradient(45deg, #0d0d0d, #1a1a1a, #333333);
+  background-size: 400% 400%;
+  animation: gradientBackgroundDark 15s ease infinite;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 @keyframes gradientBackground {
   0% {
@@ -74,6 +83,63 @@ button:focus {
 .text-danger {
   color: #ff0000;
 }
+[data-theme="dark"] .hero .container {
+  max-width: 90%;
+  width: 90%;
+}
+
+[data-theme="dark"] .form-control {
+  padding: 12px;
+  background-color: rgba(30, 30, 30, 0.85);
+  border: 1px solid #ff6f61; /* softer red */
+  color: #eee;
+  width: 100%;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+[data-theme="dark"] .form-control:focus {
+  border-color: #ff3b30; /* bright red */
+  box-shadow: 0 0 8px #ff6f61;
+  background-color: rgba(30, 30, 30, 1);
+  color: #fff;
+}
+
+[data-theme="dark"] button {
+  padding: 12px 25px;
+  border: none;
+  background-color: #ff6f61;
+  color: #121212;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  cursor: pointer;
+}
+
+[data-theme="dark"] button:hover {
+  background-color: #ff3b30;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+[data-theme="dark"] button:focus {
+  outline: none;
+}
+
+[data-theme="dark"] .form-group {
+  margin-bottom: 20px;
+}
+
+[data-theme="dark"] .mt-3 {
+  margin-top: 20px;
+}
+
+[data-theme="dark"] .text-white {
+  color: #fff;
+}
+
+[data-theme="dark"] .text-danger {
+  color: #ff6f61;
+}
+
 
 /* Responsive design adjustments for mobile */
 @media (max-width: 767px) {
