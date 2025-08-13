@@ -51,6 +51,49 @@
   font-size: 24px;
   cursor: pointer;
 }
+[data-theme="dark"] .navbar-container {
+  background-color: #1a1a1a;
+  color: white;
+}
+
+[data-theme="dark"] .logo-text {
+  color: white;
+}
+
+[data-theme="dark"] .nav-link {
+  color: white;
+}
+
+[data-theme="dark"] .nav-link.text-danger {
+  color: #ff6f61; /* lighter red for dark */
+}
+
+[data-theme="dark"] .hamburger {
+  color: white;
+}
+
+/* -------- Light Mode -------- */
+[data-theme="light"] .navbar-container {
+  background-color: #fff;
+  color: black;
+}
+
+[data-theme="light"] .logo-text {
+  color: black;
+}
+
+[data-theme="light"] .nav-link {
+  color: black;
+}
+
+[data-theme="light"] .nav-link.text-danger {
+  color: red;
+}
+
+[data-theme="light"] .hamburger {
+  color: black;
+}
+
 
 /* Responsive styling */
 @media (max-width: 600px) {

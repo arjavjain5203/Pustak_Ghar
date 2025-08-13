@@ -5,6 +5,8 @@ import "./SearchBook.css";
 
 const SubjectsPage = () => {
   const location = useLocation();
+  const [theme, setTheme] = useState("light"); 
+    const isDark = theme === "dark";
   const queryParams = new URLSearchParams(location.search);
   const university = queryParams.get("university");
   const course = queryParams.get("course");
@@ -53,26 +55,64 @@ const SubjectsPage = () => {
   };
 
   return (
-    <div className="hero">
-      <div className="container py-5">
+   <div
+      className="hero"
+      style={{
+        background: isDark
+          ? "linear-gradient(45deg, #0d0d0d, #1a1a1a, #333333)"
+          : "linear-gradient(45deg, #ff0000, #000000, #ffffff)",
+        minHeight: "100vh",
+        padding: "3rem 0",
+        color: isDark ? "#e0e0e0" : "#000",
+      }}
+    >
+      <div className="container py-5" style={{ maxWidth: "90%", width: "90%" }}>
         <div className="row justify-content-center">
           <div className="col-md-8 text-center">
-            <h2 className="mb-4 text-danger">Subjects List</h2>
-            {error && <p className="text-danger">{error}</p>}
+            <h2
+              className="mb-4"
+              style={{ color: isDark ? "#ff6f61" : "#dc3545" }}
+            >
+              Subjects List
+            </h2>
+            {error && (
+              <p className="text-danger" style={{ color: isDark ? "#ff6f61" : undefined }}>
+                {error}
+              </p>
+            )}
             {!error && subjects.length > 0 ? (
               <div className="d-flex flex-wrap justify-content-center">
                 {subjects.map((subject, index) => (
                   <button
                     key={index}
-                    className="text-danger btn btn-light m-2 rounded"
                     onClick={() => handleSubjectClick(subject)}
+                    className="btn m-2 rounded"
+                    style={{
+                      color: isDark ? "#ff6f61" : "#dc3545",
+                      backgroundColor: isDark ? "#333" : "#f8f9fa",
+                      border: `1px solid ${isDark ? "#ff6f61" : "#dc3545"}`,
+                      cursor: "pointer",
+                      transition: "all 0.3s ease",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = isDark ? "#ff6f61" : "#dc3545";
+                      e.currentTarget.style.color = isDark ? "#121212" : "#fff";
+                      e.currentTarget.style.transform = "scale(1.05)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = isDark ? "#333" : "#f8f9fa";
+                      e.currentTarget.style.color = isDark ? "#ff6f61" : "#dc3545";
+                      e.currentTarget.style.transform = "scale(1)";
+                    }}
                   >
                     {subject.subjectName}
                   </button>
                 ))}
               </div>
             ) : (
-              <p>No subjects available for the selected options.</p>
+              <p style={{ color: isDark ? "#ccc" : undefined }}>
+                No subjects available for the selected options.
+              </p>
             )}
           </div>
         </div>
