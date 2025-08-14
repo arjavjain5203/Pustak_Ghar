@@ -275,17 +275,11 @@ This project is licensed under the MIT License - see the [License](https://githu
 </p>
 
 <p align="center">
-
-  **👨‍💻 Developed By**  **❤️Vipul Agarwal and contributors❤️** 
-[GitHub](https://github.com/PROfESSOR-V) | [LinkedIn](https://www.linkedin.com/in/vipul-agarwal-76571728b/)
-</p>
-
-<p align="center">
   **👨‍💻 Developed By** **❤️Arjav Jain and Contributors❤️**
   Reach out via [LinkedIn](https://www.linkedin.com/in/arjavjain5203/) | [open an issue](https://github.com/arjavjain5203) 
+</p>
 
   <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=65&section=footer"/>
-
 
 <div align="right">
 
