@@ -275,6 +275,7 @@ This project is licensed under the MIT License - see the [License](https://githu
 </p>
 
 <p align="center">
+  
   **👨‍💻 Developed By** **❤️Arjav Jain and Contributors❤️**
   Reach out via [LinkedIn](https://www.linkedin.com/in/arjavjain5203/) | [open an issue](https://github.com/arjavjain5203) 
 </p>
