@@ -7,7 +7,7 @@
 Pustak Ghar is a comprehensive platform that provides free study materials, notes, previous year questions (PYQs), video playlists, and more for university students. The platform is designed to help students "Crush the Test and Unleash Success" by offering organized educational resources.
 
 <div align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=24&duration=3000&pause=1000&color=00C853&center=true&vCenter=true&width=700&lines=Thanks+for+visiting+DevElevate!+🙌;Start+the+repo+✅;Share+it+with+others+🌍;Contribute+and+grow+🛠️;Happy+Coding+✨!" alt="Thanks Banner Typing SVG" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=24&duration=3000&pause=1000&color=00C853&center=true&vCenter=true&width=700&lines=Thanks+for+visiting+Pustak_Ghar!+🙌;Start+the+repo+✅;Share+it+with+others+🌍;Contribute+and+grow+🛠️;Happy+Coding+✨!" alt="Thanks Banner Typing SVG" />
 </div>
 
 </div>
@@ -25,6 +25,7 @@ Pustak Ghar is a comprehensive platform that provides free study materials, note
 <div align="center">
   <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="1000">
 </div>
+
 **📊 Project Insights**
 <table align="center">
     <thead align="center">
@@ -214,10 +215,10 @@ Thanks to these amazing people who have contributed to the **Pustak_Ghar** proje
     <img src="https://api.vaunt.dev/v1/github/entities/arjavjain5203/repositories/Pustak_Ghar/contributors?format=svg&limit=54" width="500" />
 </p>
 <!-- readme: contributors -end -->
-
+<p align="center">
 <p style="font-family:var(--ff-philosopher);font-size:3rem;"><b> Show some <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Red%20Heart.png" alt="Red Heart" width="40" height="40" /> by starring this awesome repository!
 </p>
-
+</p>
 </div>
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="150%">
 </div>
@@ -274,12 +275,11 @@ This project is licensed under the MIT License - see the [License](https://githu
 </p>
 
 <p align="center">
-  **👨‍💻 Developed By**
-**❤️Arjav Jain and Contributors❤️**
-  For questions, suggestions, or collaboration, reach out via  [LinkedIn](https://www.linkedin.com/in/arjavjain5203/) | [open an issue](https://github.com/arjavjain5203)!
-<p align="center">
+  **👨‍💻 Developed By** **❤️Arjav Jain and Contributors❤️**
+  For questions, suggestions, or collaboration, reach out via [LinkedIn](https://www.linkedin.com/in/arjavjain5203/) | [open an issue](https://github.com/arjavjain5203)!
+
   <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=65&section=footer"/>
-</p>
+
 <p align="right">
 🔝 [**Back to Top**](#top)
 </p>
