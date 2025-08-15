@@ -1,6 +1,6 @@
 /* -------- Background animation with gradient -------- */
 .hero {
-  background: linear-gradient(45deg, #ff0000, #000000, #ffffff);
+  background: linear-gradient(45deg, #ae6e6e, #000000, #ffffff);
   background-size: 400% 400%;
   animation: gradientBackground 15s ease infinite;
   min-height: 100vh;
