@@ -61,7 +61,7 @@ Pustak Ghar is a comprehensive platform that provides free study materials, note
   <b>This project is now OFFICIALLY accepted for:</b>
 </p>
 
-![GSSoC Logo](/Pustak_Ghar/src/assets/gssoc_logo.png)
+![GSSoC Logo](/src/assets/gssoc_logo.png)
 
 🌟 **Exciting News...**
 
