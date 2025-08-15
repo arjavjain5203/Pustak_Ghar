@@ -61,11 +61,11 @@ Pustak Ghar is a comprehensive platform that provides free study materials, note
   <b>This project is now OFFICIALLY accepted for:</b>
 </p>
 
-![GSSoC Logo](/Pustak_Ghar/src/assets/gssoc%20logo.png)
+![GSSoC Logo](https://github.com/arjavjain5203/Pustak_Ghar/blob/main/src/assets/gssoc%20logo.png)
 
 🌟 **Exciting News...**
 
-🚀 This project is now an official part of GirlScript Summer of Code – GSSoC'25! 💃🎉💻 We're thrilled to welcome contributors from all over India and beyond to collaborate, build, and grow. Let’s make learning and career development smarter – together! 🌟👨‍💻👩‍💻
+🚀 This project is now an official part of GirlScript Summer of Code – GSSoC'25! 💃🎉💻 We're thrilled to welcome contributors from all over India and beyond to collaborate, build, and grow Pustak_Ghar. Let’s make learning and career development smarter – together! 🌟👨‍💻👩‍💻
 
 👩‍💻 GSSoC is one of India’s **largest 3-month-long open-source programs** that encourages developers of all levels to contribute to real-world projects 🌍 while learning, collaborating, and growing together. 🌱
 
@@ -259,7 +259,7 @@ This project is licensed under the MIT License - see the [License](https://githu
 <table>
 <tr>
 <td align="center">
-<a href="https://github.com/arjavjain5203"><img src="https://avatars.githubusercontent.com/u/134129669?v=4" height="140px" width="140px" alt="Vipul Agarwal"></a><br><sub><b>Arjav jain</b><br><a href="https://www.linkedin.com/in/arjavjain5203/"><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/73993775/278833250-adb040ea-e3ef-446e-bcd4-3e8d7d4c0176.png" width="45px" height="45px"></a></sub>
+<a href="https://github.com/arjavjain5203"><img src="https://avatars.githubusercontent.com/u/134129669?v=4" height="140px" width="140px" alt="Arjav Jain"></a><br><sub><b>Arjav jain</b><br><a href="https://www.linkedin.com/in/arjavjain5203/"><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/73993775/278833250-adb040ea-e3ef-446e-bcd4-3e8d7d4c0176.png" width="45px" height="45px"></a></sub>
 </td>
 </tr>
 </table>
