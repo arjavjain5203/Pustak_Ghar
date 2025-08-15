@@ -274,12 +274,10 @@ This project is licensed under the MIT License - see the [License](https://githu
      <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Mirror%20Ball.png" alt="Mirror Ball" width="150" height="150" />
 </p>
 
+ <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=65&section=footer"/>
+
 <p align="center">
   
   **👨‍💻 Developed By** **❤️Arjav Jain and Contributors❤️**
   Reach out via [LinkedIn](https://www.linkedin.com/in/arjavjain5203/) | [open an issue](https://github.com/arjavjain5203) 
 </p>
-
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=65&section=footer"/>
-
-> [🔝 Back to Top](#top)
