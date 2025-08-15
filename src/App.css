@@ -1,0 +1,84 @@
+/* 🌟 App Wrapper */
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fdc0c0, #a8c6ff);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* 🌙 Dark Mode Background */
+[data-theme="dark"] .app-wrapper {
+  background: linear-gradient(135deg, #000000, #100050);
+  color: white;
+}
+
+/* 📌 Fixed Navbar Styling */
+.navbar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 📌 Page container with space for navbar */
+.page-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 100px 15px 30px; /* 100px leaves space for navbar */
+}
+
+/* 💎 Central content card */
+.content-card {
+  width: 100%;
+  max-width: 1100px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  padding: 25px;
+  animation: fadeInUp 0.4s ease-in-out;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 🌙 Dark Mode Content Card */
+[data-theme="dark"] .content-card {
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* ✨ Footer */
+.footer {
+  text-align: center;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.05);
+  font-size: 14px;
+  color: #000000;
+  backdrop-filter: blur(4px);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 🌙 Dark Mode Footer */
+[data-theme="dark"] .footer {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 🎭 Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
