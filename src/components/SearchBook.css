@@ -1,4 +1,4 @@
-/* Background animation with gradient */
+/* -------- Background animation with gradient -------- */
 .hero {
   background: linear-gradient(45deg, #ff0000, #000000, #ffffff);
   background-size: 400% 400%;
@@ -8,6 +8,7 @@
   justify-content: center;
   align-items: center;
 }
+
 [data-theme="dark"] .hero {
   background: linear-gradient(45deg, #0d0d0d, #1a1a1a, #333333);
   background-size: 400% 400%;
@@ -30,30 +31,37 @@
   }
 }
 
-/* Styling the form elements */
+/* -------- Form Container -------- */
 .hero .container {
-  max-width: 90%; /* Increase the container width to 90% of the screen */
-  width: 90%; /* Set the form's width to 90% of the container */
+  max-width: 90%;
+  width: 90%;
 }
 
+/* -------- Form Controls (Light Mode) -------- */
 .form-control {
+  height: 44px; /* ✅ Fixed height */
   padding: 12px;
   background-color: rgba(255, 255, 255, 0.7);
   border: 1px solid #ff0000;
   color: black;
-  width: 100%; /* Make the form elements stretch across the available width */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .form-control:focus {
   border-color: #000000;
   box-shadow: 0 0 5px #ff0000;
+  background-color: rgba(255, 255, 255, 1);
 }
 
+/* -------- Buttons (Light Mode) -------- */
 button {
+  height: 44px; /* ✅ Match input height */
   padding: 12px 25px;
   border: none;
   transition: all 0.3s ease-in-out;
-  width: 100%; /* Make button stretch to full width */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 button:hover {
@@ -66,16 +74,18 @@ button:focus {
   outline: none;
 }
 
-/* Spacing between form elements */
+/* -------- Spacing -------- */
 .form-group {
   margin-bottom: 20px;
 }
 
 .mt-3 {
   margin-top: 20px;
+  justify-content: center;
+  display: flex;
 }
 
-/* Text colors */
+/* -------- Text Colors -------- */
 .text-white {
   color: #ffffff;
 }
@@ -83,34 +93,40 @@ button:focus {
 .text-danger {
   color: #ff0000;
 }
+
+/* -------- Dark Mode -------- */
 [data-theme="dark"] .hero .container {
   max-width: 90%;
   width: 90%;
 }
 
 [data-theme="dark"] .form-control {
-  padding: 12px;
+  height: 44px; /* ✅ Same as light mode */
+  padding: 6px 12px;
   background-color: rgba(30, 30, 30, 0.85);
-  border: 1px solid #ff6f61; /* softer red */
+  border: 1px solid #ff6f61;
   color: #eee;
   width: 100%;
+  box-sizing: border-box;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 [data-theme="dark"] .form-control:focus {
-  border-color: #ff3b30; /* bright red */
+  border-color: #ff3b30;
   box-shadow: 0 0 8px #ff6f61;
   background-color: rgba(30, 30, 30, 1);
   color: #fff;
 }
 
 [data-theme="dark"] button {
+  height: 44px; /* ✅ Same height */
   padding: 12px 25px;
   border: none;
   background-color: #ff6f61;
   color: #121212;
   transition: all 0.3s ease-in-out;
   width: 100%;
+  box-sizing: border-box;
   cursor: pointer;
 }
 
@@ -141,10 +157,11 @@ button:focus {
 }
 
 
-/* Responsive design adjustments for mobile */
+
+/* -------- Responsive -------- */
 @media (max-width: 767px) {
   .hero .container {
-    width: 100%; /* Ensure the container takes full width on small screens */
+    width: 100%;
   }
 
   .form-group {
