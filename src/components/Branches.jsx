@@ -39,35 +39,7 @@ const Branches ={
                     "link": "https://link-to-maths-syllabus"
                   }
                 },
-{
-      "subjectName": "Maths",
-      "Note": [
-        {
-          "title": "Note 1",
-          "noteLink": "https://youtube.com"
-        },
-        {
-          "title": "Note 2",
-          "noteLink": "https://youtube.com"
-        },
-        {
-          "title": "Note 3",
-          "noteLink": "https://youtube.com"
-        }
-      ],
-      "youtubeLink": {
-        "title": "Maths Tutorial",
-        "link": "https://youtube.com/maths-tutorial"
-      },
-      "PYQ": {
-        "title": "Maths Previous Year Questions",
-        "link": "https://link-to-maths-pyq"
-      },
-      "syllabus": {
-        "title": "Maths Syllabus",
-        "link": "https://link-to-maths-syllabus"
-      }
-    },
+                
                 {
                   "subjectName": "Chemistry",
                   "notesPage": "https://link-to-chemistry-notes",
