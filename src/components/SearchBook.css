@@ -1,175 +1,140 @@
-/* -------- Background animation with gradient -------- */
+\/* Background animation */
 .hero {
-  background: linear-gradient(45deg, #ff0000, #000000, #ffffff);
-  background-size: 400% 400%;
-  animation: gradientBackground 15s ease infinite;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(120deg, #ff0000, #000000, #ffffff);
+}
+  background-size: 400% 400%;
+  animation: gradientBackground 12s ease infinite;
+  padding: 2rem;
 }
 
-[data-theme="dark"] .hero {
-  background: linear-gradient(45deg, #0d0d0d, #1a1a1a, #333333);
+.hero.dark {
+  background: linear-gradient(120deg, #0d0d0d, #1a1a1a, #333333);
   background-size: 400% 400%;
-  animation: gradientBackgroundDark 15s ease infinite;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  animation: gradientBackgroundDark 12s ease infinite;
 }
 
 @keyframes gradientBackground {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-/* -------- Form Container -------- */
-.hero .container {
-  max-width: 90%;
-  width: 90%;
+@keyframes gradientBackgroundDark {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-/* -------- Form Controls (Light Mode) -------- */
-.form-control {
-  height: 44px; /* ✅ Fixed height */
-  padding: 12px;
-  background-color: rgba(255, 255, 255, 0.7);
-  border: 1px solid #ff0000;
-  color: black;
-  width: 100%;
-  box-sizing: border-box;
+/* Glass effect container */
+.glass-card {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
 }
 
-.form-control:focus {
-  border-color: #000000;
-  box-shadow: 0 0 5px #ff0000;
-  background-color: rgba(255, 255, 255, 1);
+.hero.dark .glass-card {
+  background: rgba(30, 30, 30, 0.25);
+=======
 }
 
-/* -------- Buttons (Light Mode) -------- */
-button {
-  height: 44px; /* ✅ Match input height */
-  padding: 12px 25px;
-  border: none;
-  transition: all 0.3s ease-in-out;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-button:hover {
-  background-color: #ff0000;
+/* Typography */
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 800;
   color: white;
-  transform: scale(1.1);
 }
 
-button:focus {
-  outline: none;
+.hero-subtitle {
+  font-size: 1.8rem;
+  color: #ff6f61;
+  margin-bottom: 1rem;
 }
 
-/* -------- Spacing -------- */
-.form-group {
-  margin-bottom: 20px;
-}
-
-.mt-3 {
-  margin-top: 20px;
-  justify-content: center;
-  display: flex;
-}
-
-/* -------- Text Colors -------- */
-.text-white {
-  color: #ffffff;
-}
-
-.text-danger {
-  color: #ff0000;
-}
-
-/* -------- Dark Mode -------- */
-[data-theme="dark"] .hero .container {
-  max-width: 90%;
-  width: 90%;
-}
-
-[data-theme="dark"] .form-control {
-  height: 44px; /* ✅ Same as light mode */
-  padding: 6px 12px;
-  background-color: rgba(30, 30, 30, 0.85);
-  border: 1px solid #ff6f61;
-  color: #eee;
-  width: 100%;
-  box-sizing: border-box;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-[data-theme="dark"] .form-control:focus {
-  border-color: #ff3b30;
-  box-shadow: 0 0 8px #ff6f61;
-  background-color: rgba(30, 30, 30, 1);
-  color: #fff;
-}
-
-[data-theme="dark"] button {
-  height: 44px; /* ✅ Same height */
-  padding: 12px 25px;
-  border: none;
-  background-color: #ff6f61;
-  color: #121212;
-  transition: all 0.3s ease-in-out;
-  width: 100%;
-  box-sizing: border-box;
-  cursor: pointer;
-}
-
-[data-theme="dark"] button:hover {
-  background-color: #ff3b30;
-  color: #fff;
-  transform: scale(1.1);
-}
-
-[data-theme="dark"] button:focus {
-  outline: none;
-}
-
-[data-theme="dark"] .form-group {
-  margin-bottom: 20px;
-}
-
-[data-theme="dark"] .mt-3 {
-  margin-top: 20px;
-}
-
-[data-theme="dark"] .text-white {
-  color: #fff;
-}
-
-[data-theme="dark"] .text-danger {
+.hero.dark .hero-subtitle {
   color: #ff6f61;
 }
 
+.hero-text {
+  font-size: 1rem;
+  color: white;
+  margin-bottom: 2rem;
+}
 
+/* Form styling */
+.search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 
-/* -------- Responsive -------- */
-@media (max-width: 767px) {
-  .hero .container {
-    width: 100%;
+.form-control {
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 0, 0, 0.4);
+  background-color: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+}
+
+.hero.dark .form-control {
+  background-color: rgba(40, 40, 40, 0.85);
+  border: 1px solid #ff6f61;
+  color: #fff;
+}
+
+.form-control:focus {
+  border-color: #ff0000;
+  box-shadow: 0 0 8px rgba(255, 0, 0, 0.4);
+  outline: none;
+}
+
+/* Search button */
+.search-btn {
+  padding: 12px;
+  border-radius: 12px;
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.search-btn:hover:not(:disabled) {
+  background-color: #e60000;
+  transform: scale(1.05);
+}
+
+.search-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Theme toggle */
+.toggle-btn {
+  background: transparent;
+  border: 1px solid white;
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  color: white;
+  transition: 0.3s ease;
+}
+
+.toggle-btn:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 1.8rem;
   }
-
-  .form-group {
-    margin-bottom: 15px;
-  }
-
-  button {
-    width: 100%;
-    padding: 12px;
+  .hero-subtitle {
+    font-size: 1.4rem;
   }
 }
