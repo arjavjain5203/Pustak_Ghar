@@ -40,6 +40,7 @@ const NavBar = () => {
         <Link to="/" className={`nav-link ${theme === "light" ? "text-danger" : "text-danger-light"}`}>HOME</Link>
         <Link to="/" className={`nav-link ${theme === "light" ? "text-black" : "text-light"}`}>MORE</Link>
         <Link to="/" className={`nav-link ${theme === "light" ? "text-black" : "text-light"}`}>JOIN</Link>
+        <Link to="/upload" className={`nav-link ${theme === "light" ? "text-black" : "text-light"}`}>UPLOAD</Link>
       </div>
 
       <div className="nav-controls" style={{ display: "flex", alignItems: "center" }}>
