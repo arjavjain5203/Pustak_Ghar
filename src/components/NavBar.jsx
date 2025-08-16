@@ -29,17 +29,20 @@ const NavBar = () => {
 
   return (
     <div className={`navbar-container ${theme === "light" ? "bg-white" : "bg-dark"}`}>
+      <Link to="/" style={{ textDecoration: 'none' }}>
       <div className="navbar-logo">
         <img src={Logo} alt="Logo" className="logo-img" />
         <p className={`logo-text ${theme === "light" ? "text-black" : "text-light"}`}>
           <span className="text-danger">Pustak</span> <span>Ghar</span>
         </p>
-      </div>
+        </div></Link>
 
       <div className={`navbar-links ${menuOpen ? `show ${theme === "light" ? "bg-white" : "bg-dark"}` : ""}`}>
         <Link to="/" className={`nav-link ${theme === "light" ? "text-danger" : "text-danger-light"}`}>HOME</Link>
         <Link to="/" className={`nav-link ${theme === "light" ? "text-black" : "text-light"}`}>MORE</Link>
         <Link to="/" className={`nav-link ${theme === "light" ? "text-black" : "text-light"}`}>JOIN</Link>
+        <Link to="/about" className={`nav-link ${theme === "light" ? "text-danger" : "text-light"}`}>ABOUT</Link>
+        <Link to="/contribute" className={`nav-link ${theme === "light" ? "text-danger" : "text-light"}`}>CONTRIBUTE</Link>
       </div>
 
       <div className="nav-controls" style={{ display: "flex", alignItems: "center" }}>
