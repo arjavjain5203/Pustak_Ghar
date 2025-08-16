@@ -1,10 +1,11 @@
-/* Background animation */
+\/* Background animation */
 .hero {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background: linear-gradient(120deg, #ff0000, #000000, #ffffff);
+}
   background-size: 400% 400%;
   animation: gradientBackground 12s ease infinite;
   padding: 2rem;
@@ -40,6 +41,7 @@
 
 .hero.dark .glass-card {
   background: rgba(30, 30, 30, 0.25);
+=======
 }
 
 /* Typography */
