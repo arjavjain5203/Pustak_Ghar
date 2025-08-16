@@ -40,7 +40,7 @@ const Upload = () => {
       formData.append("branch", data.branch);
       formData.append("year", data.year);
       formData.append("subject", data.subject);
-      if (file) {
+      if (link) {
         formData.append("link", data.link);
       }
       if (file) {
