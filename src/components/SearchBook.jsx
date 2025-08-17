@@ -93,7 +93,6 @@ const Search = () => {
                 </button>
               </div>
             </form>
-
           </div>
         </div>
       </div>
