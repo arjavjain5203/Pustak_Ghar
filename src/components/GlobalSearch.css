@@ -1,0 +1,128 @@
+/* Container */
+.global-search-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+}
+
+.search-input-container {
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 24px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  background-color: #f8f9fa;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #4a6bff;
+  box-shadow: 0 0 0 2px rgba(74, 107, 255, 0.2);
+  background-color: white;
+}
+
+/* Dropdown */
+.search-results-dropdown {
+  position: absolute;
+  top: 100%;
+  left: -60px;
+  right: 0;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  max-height: 320px;
+  overflow-y: auto;
+  z-index: 1000;
+  margin-top: 10px;
+  padding: 8px 0;
+  width: 100%;
+  min-width: 350px;
+}
+
+/* Each search result */
+.search-result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  text-decoration: none;
+  color: #212529;
+  transition: background-color 0.2s;
+  border-radius: 8px;
+  margin: 2px 6px;
+  gap: 12px;
+}
+
+.search-result-item:hover {
+  background-color: #f1f3f5;
+}
+
+/* Title text */
+.result-title {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* Badge */
+.result-type {
+  flex-shrink: 0;
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+/* Badge colors */
+.result-type.note {
+  background-color: #e3f2fd;
+  color: #1565c0;
+}
+.result-type.youtube {
+  background-color: #ffebee;
+  color: #c62828;
+}
+.result-type.pyq {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+.result-type.syllabus {
+  background-color: #f3e5f5;
+  color: #6a1b9a;
+}
+
+/* No results */
+.no-results {
+  padding: 16px;
+  color: #6c757d;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Dark Mode */
+[data-theme="dark"] .search-input {
+  background-color: #2d3436;
+  border-color: #444;
+  color: #f8f9fa;
+}
+[data-theme="dark"] .search-results-dropdown {
+  background-color: #1e272e;
+  border: 1px solid #333;
+}
+[data-theme="dark"] .search-result-item {
+  color: #f8f9fa;
+}
+[data-theme="dark"] .search-result-item:hover {
+  background-color: #2d3436;
+}
