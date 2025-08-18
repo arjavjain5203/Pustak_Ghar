@@ -6,8 +6,12 @@ import Branch from "./components/SearchBranch";
 import SubjectsPage from "./components/SubjectSelect";
 import Content from "./components/Content";
 import SubjectDetails from "./components/SubjectDetails";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import Upload from "./components/Upload";
+import About from "./components/About";
+import Contribute from "./components/Contribute";
 
 function App() {
   return (
@@ -25,6 +29,9 @@ function App() {
               <Route path="/subjects" element={<SubjectsPage />} />
               <Route path="/content" element={<Content />} />
               <Route path="/subject-details" element={<SubjectDetails />} />
+              <Route path="/upload" element={<Upload />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contribute" element={<Contribute />} />
             </Routes>
           </div>
         </main>

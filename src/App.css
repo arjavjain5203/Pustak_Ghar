@@ -88,3 +88,16 @@
     transform: translateY(0);
   }
 }
+
+.page-container.about-page-container {
+  padding-top: 60px !important;
+  margin-top: 0 !important;
+}
+
+.content-card.about-card {
+  margin-top: -50px !important;
+}
+
+.about-title {
+  margin-top: 0 !important;
+}
