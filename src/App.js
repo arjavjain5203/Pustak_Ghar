@@ -10,6 +10,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import About from "./components/About";
 import Contribute from "./components/Contribute";
+import More from "./components/More";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
               <Route path="/content" element={<Content />} />
               <Route path="/subject-details" element={<SubjectDetails />} />
               <Route path="/about" element={<About />} />
+              <Route path="/more" element={<More />} />
               <Route path="/contribute" element={<Contribute />} />
             </Routes>
           </div>
