@@ -34,7 +34,7 @@ function Footer() {
         </div>
       </div>
       <div className="footer-bottom">
-        &copy; {new Date().getFullYear} Pustak Ghar | All Rights Reserved
+        &copy; {new Date().getFullYear()} Pustak Ghar | All Rights Reserved
       </div>
     </footer>
   );

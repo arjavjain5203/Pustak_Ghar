@@ -16,8 +16,9 @@ function JoinUs() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Thank you for volunteering! We'll reach out soon.");
-    setFormData({ name: "", email: "", skills: "", message: "" });
+    localStorage.setItem("volunteerData", JSON.stringify(formData));
+    alert("Form saved locally!");
+    setFormData({ name: "", email: "", message: "" });
   };
 
   return (
