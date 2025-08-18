@@ -39,7 +39,8 @@
 
 /* -------- Form Controls (Light Mode) -------- */
 .form-control {
-  height: 44px; /* ✅ Fixed height */
+  min-height: 44px;
+  height: auto; /* ✅ Fixed height */
   padding: 12px;
   background-color: rgba(255, 255, 255, 0.7);
   border: 1px solid #ff0000;
@@ -90,7 +91,8 @@ select.form-control:focus {
 
 /* -------- Buttons (Light Mode) -------- */
 button {
-  height: 44px; /* ✅ Match input height */
+  min-height: 44px;
+  height: auto; /* ✅ Match input height */
   padding: 12px 25px;
   border: none;
   transition: all 0.3s ease-in-out;
@@ -175,7 +177,8 @@ button:focus {
 }
 
 [data-theme="dark"] button {
-  height: 44px; /* ✅ Same height */
+  min-height: 44px;
+  height: auto; /* ✅ Same height */
   padding: 12px 25px;
   border: none;
   background-color: #ff6f61;
@@ -226,4 +229,18 @@ button:focus {
     width: 100%;
     padding: 12px;
   }
+  /* Extra safeguard for very small screens */
+@media (max-width: 600px) {
+  .form-row,
+  .input-group,
+  .d-flex {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .form-row > * {
+    width: 100%;
+  }
+}
+
 }
