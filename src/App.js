@@ -5,6 +5,7 @@ import Search from "./components/SearchBook";
 import Branch from "./components/SearchBranch";
 import SubjectsPage from "./components/SubjectSelect";
 import Content from "./components/Content";
+import Resources from './components/Resources';
 import SubjectDetails from "./components/SubjectDetails";
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -30,6 +31,7 @@ function App() {
               <Route path="/content" element={<Content />} />
               <Route path="/subject-details" element={<SubjectDetails />} />
               <Route path="/upload" element={<Upload />} />
+              <Route path="/resources" element={<Resources />} />
               <Route path="/about" element={<About />} />
               <Route path="/contribute" element={<Contribute />} />
             </Routes>
