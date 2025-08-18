@@ -6,8 +6,10 @@ import Branch from "./components/SearchBranch";
 import SubjectsPage from "./components/SubjectSelect";
 import Content from "./components/Content";
 import SubjectDetails from "./components/SubjectDetails";
+import JoinUs from "./components/JoinUs";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -25,14 +27,13 @@ function App() {
               <Route path="/subjects" element={<SubjectsPage />} />
               <Route path="/content" element={<Content />} />
               <Route path="/subject-details" element={<SubjectDetails />} />
+              <Route path="/joinus" element={<JoinUs/>}/>
             </Routes>
           </div>
         </main>
 
         {/* Footer */}
-        <footer className="footer">
-          <p>📚 Pustak Ghar — Learn Better, Faster</p>
-        </footer>
+        <Footer/>
       </div>
     </Router>
   );

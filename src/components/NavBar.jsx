@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./NavBar.css";
 import NoHeaderPaths from "./NoNavbarpath";
-import Logo from '../assets/main-logo.jpg';
+import Logo from "../assets/main-logo.jpg";
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -28,21 +28,57 @@ const NavBar = () => {
   };
 
   return (
-    <div className={`navbar-container ${theme === "light" ? "bg-white" : "bg-dark"}`}>
+    <div
+      className={`navbar-container ${
+        theme === "light" ? "bg-white" : "bg-dark"
+      }`}
+    >
       <div className="navbar-logo">
         <img src={Logo} alt="Logo" className="logo-img" />
-        <p className={`logo-text ${theme === "light" ? "text-black" : "text-light"}`}>
+        <p
+          className={`logo-text ${
+            theme === "light" ? "text-black" : "text-light"
+          }`}
+        >
           <span className="text-danger">Pustak</span> <span>Ghar</span>
         </p>
       </div>
 
-      <div className={`navbar-links ${menuOpen ? `show ${theme === "light" ? "bg-white" : "bg-dark"}` : ""}`}>
-        <Link to="/" className={`nav-link ${theme === "light" ? "text-danger" : "text-danger-light"}`}>HOME</Link>
-        <Link to="/" className={`nav-link ${theme === "light" ? "text-black" : "text-light"}`}>MORE</Link>
-        <Link to="/" className={`nav-link ${theme === "light" ? "text-black" : "text-light"}`}>JOIN</Link>
+      <div
+        className={`navbar-links ${
+          menuOpen ? `show ${theme === "light" ? "bg-white" : "bg-dark"}` : ""
+        }`}
+      >
+        <Link
+          to="/"
+          className={`nav-link ${
+            theme === "light" ? "text-danger" : "text-danger-light"
+          }`}
+        >
+          HOME
+        </Link>
+        <Link
+          to="/"
+          className={`nav-link ${
+            theme === "light" ? "text-black" : "text-light"
+          }`}
+        >
+          MORE
+        </Link>
+        <Link
+          to="/joinus"
+          className={`nav-link ${
+            theme === "light" ? "text-black" : "text-light"
+          }`}
+        >
+          JOIN
+        </Link>
       </div>
 
-      <div className="nav-controls" style={{ display: "flex", alignItems: "center" }}>
+      <div
+        className="nav-controls"
+        style={{ display: "flex", alignItems: "center" }}
+      >
         <button
           onClick={toggleTheme}
           aria-label="Toggle light/dark theme"
@@ -62,13 +98,17 @@ const NavBar = () => {
         </button>
 
         <div
-          className={`hamburger ${theme === "light" ? "text-black" : "text-light"}`}
+          className={`hamburger ${
+            theme === "light" ? "text-black" : "text-light"
+          }`}
           onClick={toggleMenu}
           style={{ cursor: "pointer", fontSize: "1.5rem" }}
           aria-label="Toggle menu"
           role="button"
           tabIndex={0}
-          onKeyDown={(e) => { if (e.key === "Enter") toggleMenu(); }}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") toggleMenu();
+          }}
         >
           ☰
         </div>
