@@ -1,93 +1,122 @@
-/* Container animation */
-.about-card {
-    animation: fadeInUp 0.4s ease-in-out;
+.about-section-main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 38px 0 48px;
+    background: transparent;
 }
 
-/* Inner wrapper for controlled vertical spacing */
-.about-content-inner {
-    margin-top: 0;
-    padding-top: 0;
+.about-container {
+    width: 100%;
+    max-width: 520px;
+    background: rgba(255, 255, 255, 0.88);
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+    padding: 36px 30px 22px;
+    text-align: center;
+    backdrop-filter: blur(12px);
+    transition: background 0.3s;
 }
 
-/* Main title */
+[data-theme="dark"] .about-container {
+    background: rgba(22, 18, 34, 0.94);
+    color: #eee;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.19);
+}
+
 .about-title {
-    font-size: 2rem;
-    margin-top: 0;
-    /* Remove default heading top margin */
-    margin-bottom: 0.5rem;
+    font-size: 1.7rem;
     font-weight: bold;
-    color: #16213e;
+    margin-bottom: 6px;
+    color: #dc3545;
 }
 
 [data-theme="dark"] .about-title {
-    color: #0d0101;
+    color: #ff6f61;
 }
 
-/* Tagline paragraph below title */
-.about-tagline {
-    font-size: 1.1rem;
+.about-desc {
+    font-size: 1.07rem;
+    color: #444;
+    margin-bottom: 18px;
+}
+
+[data-theme="dark"] .about-desc {
+    color: #bababa;
+}
+
+.about-card-content {
+    text-align: left;
+    margin-top: 14px;
+}
+
+.about-topic {
     margin-bottom: 1.5rem;
-    color: #555;
 }
 
-[data-theme="dark"] .about-tagline {
-    color: #0d0101;
+.about-topic h3 {
+    font-size: 1.17rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #dc3545;
 }
 
-/* Each section container */
-.about-section {
-    margin-bottom: 1.8rem;
+[data-theme="dark"] .about-topic h3 {
+    color: #ff6f61;
 }
 
-/* Section heading */
-.about-section h2 {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    color: #223072;
+.about-topic ul,
+.about-topic ol {
+    margin: 0 0 0 1.2rem;
+    padding: 0;
+    color: #444;
 }
 
-[data-theme="dark"] .about-section h2 {
-    color: #0e349e;
+[data-theme="dark"] .about-topic ul,
+[data-theme="dark"] .about-topic ol {
+    color: #eee;
 }
 
-/* Lists inside sections */
-.about-section ul,
-.about-section ol {
-    padding-left: 1.2rem;
+.about-topic li {
+    margin-bottom: 0.55rem;
+    line-height: 1.55;
+}
+/* Outer container style matching SearchBook's container look */
+.about-container,
+.contrib-container {
+    background: #fff;
+    /* solid white background for light mode */
+    border: 1px solid #dee2e6;
+    /* light grey bootstrap-like border */
+    border-radius: 0.375rem;
+    /* Bootstrap's default border-radius (6px approx) */
+    box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 0.075);
+    /* subtle shadow for depth */
+    padding: 2rem 2.5rem;
+    /* adjust padding to taste */
+    max-width: 1100px;
+    text-align: center;
+    transition: background 0.3s, border-color 0.3s ease;
 }
 
-.about-section ul li,
-.about-section ol li {
-    line-height: 1.6;
-    margin-bottom: 0.7em;
-    color: #333;
+/* Dark mode override */
+[data-theme="dark"] .about-container,
+[data-theme="dark"] .contrib-container {
+    background: #1e1a2e;
+    /* dark solid background */
+    border: 1px solid #444b62;
+    /* darker border */
+    box-shadow: 0 0.125rem 0.5rem rgb(0 0 0 / 0.5);
+    color: #e0e0e0;
 }
 
-[data-theme="dark"] .about-section ul li,
-[data-theme="dark"] .about-section ol li {
-    color: #0d0101;
+/* Preserve existing text colors inside containers */
+.about-title,
+.contrib-title {
+    color: inherit;
 }
 
-/* Paragraphs inside sections */
-.about-section p {
-    color: #363636;
-}
-
-[data-theme="dark"] .about-section p {
-    color: #0d0101;
-}
-
-/* Override global page-container padding for about page to reduce space */
-.page-container.about-page-container {
-    padding-top: 60px !important;
-    /* Reduce from 100px to 60px for less top space */
-}
-
-/* Optional: If needed, you can also adjust responsive spacing here */
-@media (max-width: 768px) {
-    .page-container.about-page-container {
-        padding-top: 50px !important;
-    }
+.about-desc,
+.contrib-desc {
+    color: inherit;
 }

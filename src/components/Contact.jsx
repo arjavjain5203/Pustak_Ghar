@@ -7,12 +7,10 @@ const Contact = () => {
     const [loading, setLoading] = useState(false);
     const [sent, setSent] = useState(false);
 
-    // Input handling
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    // Submit with EmailJS
     const handleSubmit = (e) => {
         e.preventDefault();
         setLoading(true);
@@ -44,9 +42,8 @@ const Contact = () => {
             <div className="contact-container">
                 <h2 className="contact-title">Contact Us</h2>
                 <p className="contact-desc">
-                    Have questions or feedback about Pustak Ghar? We’d love to hear from you!
+                    💌 Have questions or feedback about Pustak Ghar? We’d love to hear from you!
                 </p>
-
                 {sent ? (
                     <div className="contact-success">✅ Your message has been sent! Thank you.</div>
                 ) : (
