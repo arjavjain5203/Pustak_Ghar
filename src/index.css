@@ -1,0 +1,15 @@
+/* === Global Responsive Helpers === */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+/* Media elements scale down on small screens */
+img, video, canvas, svg { display: block; max-width: 100%; height: auto; }
+
+:root { --container-padding: clamp(12px, 3vw, 24px); }
+.container, .content-card {
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+/* Prevent horizontal scrolling caused by long words/URLs */
+* { overflow-wrap: anywhere; word-break: break-word; }
