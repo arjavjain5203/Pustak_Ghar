@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import * as XLSX from "xlsx";
 
 const JoinUs = () => {
   const [formData, setFormData] = useState({
@@ -19,16 +20,15 @@ const JoinUs = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log("Volunteer Form Submitted:", formData);
+    const worksheet = XLSX.utils.json_to_sheet([formData]);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Volunteers");
 
-    alert("Thanks for joining us! (Demo only, data not sent to server)");
+    XLSX.writeFile(workbook, "volunteers.xlsx");
 
-    setFormData({
-      name: "",
-      email: "",
-      role: "",
-      message: "",
-    });
+    alert("Form data saved to volunteers.xlsx");
+
+    setFormData({ name: "", email: "", role: "", message: "" });
   };
 
   return (
@@ -58,7 +58,7 @@ const JoinUs = () => {
         </label>
 
         <label>
-          Role (Volunteer / Donor / Other):
+          Role:
           <input
             type="text"
             name="role"
