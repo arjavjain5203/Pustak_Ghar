@@ -10,7 +10,6 @@ const Search = () => {
   const [theme, setTheme] = useState("light");
   const navigate = useNavigate();
 
-  // Extract university name dynamically
   const universityName = Branches?.universityName;
 
   // Check if courses exist and is an array before using map
