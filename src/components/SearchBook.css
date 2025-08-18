@@ -47,6 +47,19 @@
   width: 100%;
   box-sizing: border-box;
 }
+/* Light placeholders */
+.hero .form-control::placeholder { color: rgba(0,0,0,0.65); opacity: 1; }
+.hero .form-control::-webkit-input-placeholder { color: rgba(0,0,0,0.65); }
+.hero .form-control::-moz-placeholder { color: rgba(0,0,0,0.65); }
+.hero .form-control:-ms-input-placeholder { color: rgba(0,0,0,0.65); }
+.hero .form-control::-ms-input-placeholder { color: rgba(0,0,0,0.65); }
+
+/* Dark placeholders */
+[data-theme="dark"] .hero .form-control::placeholder { color: #fff !important; opacity: 1 !important; }
+[data-theme="dark"] .hero .form-control::-webkit-input-placeholder { color: #fff !important; }
+[data-theme="dark"] .hero .form-control::-moz-placeholder { color: #fff !important; }
+[data-theme="dark"] .hero .form-control:-ms-input-placeholder { color: #fff !important; }
+[data-theme="dark"] .hero .form-control::-ms-input-placeholder { color: #fff !important; }
 
 .form-control:focus {
   border-color: #000000;

@@ -44,6 +44,7 @@ const NavBar = () => {
         <Link to="/" className={`nav-link ${theme === "light" ? "text-black" : "text-light"}`}>JOIN</Link>
         <Link to="/about" className={`nav-link ${theme === "light" ? "text-danger" : "text-light"}`}>ABOUT</Link>
         <Link to="/contribute" className={`nav-link ${theme === "light" ? "text-danger" : "text-light"}`}>CONTRIBUTE</Link>
+        <Link to="/upload" className={`nav-link ${theme === "light" ? "text-black" : "text-light"}`}>UPLOAD</Link>
       </div>
 
       <div className="nav-controls" style={{ display: "flex", alignItems: "center" }}>
