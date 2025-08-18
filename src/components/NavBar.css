@@ -147,7 +147,13 @@ select {
     display: flex;
   }
 
-  .hamburger {
-    display: block;
-  }
+  /* default: hide on desktop */
+.hamburger { display: none; }
+
+/* inside your existing mobile media query */
+@media (max-width: 600px) {
+  .hamburger { display: block; }
+  /* ...your existing mobile navbar rules... */
 }
+}
+

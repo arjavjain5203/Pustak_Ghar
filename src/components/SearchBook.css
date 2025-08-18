@@ -39,7 +39,8 @@
 
 /* -------- Form Controls (Light Mode) -------- */
 .form-control {
-  height: 44px; /* ✅ Fixed height */
+  min-height:44px;
+  height: auto; /* ✅ Fixed height */
   padding: 12px;
   background-color: rgba(255, 255, 255, 0.7);
   border: 1px solid #ff0000;
@@ -213,4 +214,19 @@ button:focus {
     width: 100%;
     padding: 12px;
   }
+
+/* Extra safeguard for very small screens */
+@media (max-width: 600px) {
+  .form-row,
+  .input-group,
+  .d-flex {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .form-row > * {
+    width: 100%;
+  }
 }
+}
+
