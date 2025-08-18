@@ -12,6 +12,7 @@ import "./App.css";
 import Upload from "./components/Upload";
 import About from "./components/About";
 import Contribute from "./components/Contribute";
+import More from "./components/More";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
               <Route path="/subject-details" element={<SubjectDetails />} />
               <Route path="/upload" element={<Upload />} />
               <Route path="/about" element={<About />} />
+              <Route path="/more" element={<More />} />
               <Route path="/contribute" element={<Contribute />} />
             </Routes>
           </div>
