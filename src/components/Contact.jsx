@@ -13,17 +13,26 @@ const Contact = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        const { REACT_APP_EMAILJS_SERVICE_ID, REACT_APP_EMAILJS_TEMPLATE_ID, REACT_APP_EMAILJS_USER_ID } = process.env;
+
+        if (!REACT_APP_EMAILJS_SERVICE_ID || !REACT_APP_EMAILJS_TEMPLATE_ID || !REACT_APP_EMAILJS_USER_ID) {
+            alert("Email service is not configured properly. Please contact the administrator.");
+            setLoading(false);
+            return;
+        }
+
         setLoading(true);
         emailjs
             .send(
-                process.env.REACT_APP_EMAILJS_SERVICE_ID,
-                process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+                REACT_APP_EMAILJS_SERVICE_ID,
+                REACT_APP_EMAILJS_TEMPLATE_ID,
                 {
                     from_name: formData.name,
                     from_email: formData.email,
                     message: formData.message,
                 },
-                process.env.REACT_APP_EMAILJS_USER_ID
+                REACT_APP_EMAILJS_USER_ID
             )
             .then(() => {
                 setSent(true);
