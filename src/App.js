@@ -6,6 +6,7 @@ import Branch from "./components/SearchBranch";
 import SubjectsPage from "./components/SubjectSelect";
 import Content from "./components/Content";
 import SubjectDetails from "./components/SubjectDetails";
+import FAQ from "./components/FAQ"; 
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
@@ -24,6 +25,15 @@ function App() {
         <main className="page-container">
           <div className="content-card">
             <Routes>
+              <Route
+                path="/"
+                element={
+                  <>
+                    <Search />
+                    <FAQ />
+                  </>
+                }
+              />
               <Route path="/" element={<Search />} />
               <Route path="/branch-year" element={<Branch />} />
               <Route path="/subjects" element={<SubjectsPage />} />
