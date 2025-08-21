@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import "./GlobalSearch.css";
 
 const GlobalSearch = ({ branches }) => {
@@ -7,7 +7,6 @@ const GlobalSearch = ({ branches }) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const wrapperRef = useRef(null);
 
-  // Flatten the nested branches data into a single array of resources
   const flattenResources = (data) => {
     if (!data) return [];
     const courses = Array.isArray(data.courses) ? data.courses : [];
@@ -114,7 +113,6 @@ const GlobalSearch = ({ branches }) => {
       });
     });
 
-    // Deduplicate
     const seen = new Set();
     return resources.filter((res) => {
       const key = res.link + res.type + res.year;
@@ -124,7 +122,8 @@ const GlobalSearch = ({ branches }) => {
     });
   };
 
-  const allResources = flattenResources(branches);
+  // ✅ Memoize the resources array
+  const allResources = useMemo(() => flattenResources(branches), [branches]);
 
   useEffect(() => {
     if (!query) {

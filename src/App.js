@@ -6,8 +6,8 @@ import Branch from "./components/SearchBranch";
 import SubjectsPage from "./components/SubjectSelect";
 import Content from "./components/Content";
 import SubjectDetails from "./components/SubjectDetails";
-import FAQ from "./components/FAQ"; 
-
+import FAQ from "./components/FAQ";
+import JoinPage from "./components/JoinPage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Upload from "./components/Upload";
@@ -35,12 +35,12 @@ function App() {
                   </>
                 }
               />
-              <Route path="/" element={<Search />} />
               <Route path="/branch-year" element={<Branch />} />
               <Route path="/subjects" element={<SubjectsPage />} />
               <Route path="/content" element={<Content />} />
               <Route path="/subject-details" element={<SubjectDetails />} />
               <Route path="/upload" element={<Upload />} />
+              <Route path="/join" element={<JoinPage />} />
               <Route path="/about" element={<About />} />
               <Route path="/more" element={<More />} />
               <Route path="/contribute" element={<Contribute />} />
