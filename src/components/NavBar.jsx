@@ -101,6 +101,7 @@ const NavBar = () => {
         >
           UPLOAD
         </Link>
+
       </div>
 
       {/* Controls: Search, Theme, Hamburger */}
