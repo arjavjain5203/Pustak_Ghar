@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import "./Contribute.css";
 
 const GITHUB_REPO = "arjavjain5203/Pustak_Ghar";
+
 const Contribute = () => {
   const [contributors, setContributors] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`https://api.github.com/repos/${GITHUB_REPO}/contributors?per_page=12`)
+    // Fetch top contributors from GitHub API
+    fetch(`https://api.github.com/repos/${GITHUB_REPO}/contributors?per_page=15`)
       .then((res) => res.json())
       .then((data) => {
         if (Array.isArray(data)) setContributors(data);
@@ -16,61 +18,97 @@ const Contribute = () => {
   }, []);
 
   return (
-    <section className="contrib-section-main">
-      <div className="contrib-container">
-        <h2 className="contrib-title">🤝 How to Contribute</h2>
-        <p className="contrib-desc">
-          Want to add resources, fix bugs, or make Pustak Ghar better? Here’s how!
-        </p>
-        <div className="contrib-card-content">
+    <div className="app-wrapper">
+      <div className="page-container contribute-page-container">
+        <div className="content-card contribute-card">
+          <h1 className="contribute-title">🤝 How to Contribute to Pustak Ghar</h1>
+          <p className="contribute-tagline">
+            Join our vibrant open source family — help us make study resources accessible for all!
+          </p>
 
-          <div className="contrib-topic">
-            <h3>📝 Contribution Steps</h3>
-            <ol className="contrib-steps-list">
-              <li><span className="step-icon">🍴</span> Fork the repository on GitHub</li>
-              <li><span className="step-icon">💻</span> Clone your fork:<pre>git clone https://github.com/YOUR-USERNAME/Pustak_Ghar.git</pre></li>
-              <li><span className="step-icon">🌿</span> Create a feature branch:<pre>git checkout -b feature/YourFeatureName</pre></li>
-              <li><span className="step-icon">📦</span> Install dependencies:<pre>npm install</pre></li>
-              <li><span className="step-icon">✨</span> Make your changes and tests.</li>
-              <li><span className="step-icon">💾</span> Commit & push:<pre>git add .<br />git commit -m "Add your feature"<br />git push origin feature/YourFeatureName</pre></li>
-              <li><span className="step-icon">📬</span> Open a Pull Request!</li>
+          <section className="contribute-section">
+            <h2>📝 Contribution Steps</h2>
+            <ol className="contribute-steps-list">
+              <li>
+                <span className="step-icon">🍴</span> <strong>Fork the repository</strong> on GitHub by clicking the <em>Fork</em> button at the top right of the page.
+              </li>
+              <li>
+                <span className="step-icon">💻</span> <strong>Clone your fork locally</strong> using the command:
+                <pre>git clone https://github.com/YOUR-USERNAME/Pustak_Ghar.git</pre>
+              </li>
+              <li>
+                <span className="step-icon">🌿</span> <strong>Create a feature branch</strong> to keep your work organized:
+                <pre>git checkout -b feature/YourFeatureName</pre>
+              </li>
+              <li>
+                <span className="step-icon">📦</span> <strong>Install dependencies</strong> so the project runs smoothly:
+                <pre>npm install</pre>
+              </li>
+              <li>
+                <span className="step-icon">✨</span> <strong>Make your changes</strong> following our coding standards and UI guidelines for consistency and quality.
+              </li>
+              <li>
+                <span className="step-icon">🧪</span> <strong>Test your changes</strong> locally to make sure everything works as expected.
+                <pre>npm start</pre>
+              </li>
+              <li>
+                <span className="step-icon">💾</span> <strong>Commit your changes</strong> with a clear message describing your work:
+                <pre>git add .<br />git commit -m "Add your feature"</pre>
+              </li>
+              <li>
+                <span className="step-icon">🛫</span> <strong>Push your branch</strong> to your fork:
+                <pre>git push origin feature/YourFeatureName</pre>
+              </li>
+              <li>
+                <span className="step-icon">📬</span> <strong>Open a Pull Request</strong> on the original repository to propose your changes for review and merge.
+              </li>
             </ol>
-          </div>
+          </section>
 
-          <div className="contrib-topic">
-            <h3>🌈 Guidelines</h3>
+
+          <section className="contribute-section">
+            <h2>🌈 Community & Coding Guidelines</h2>
             <ul>
-              <li>Clear commit messages, readable code.</li>
-              <li>Responsive, consistent UI and gradient theme.</li>
-              <li>Preserve resource structure: University → Branches → Years → Subjects → Resources.</li>
-              <li>Test on desktop and mobile.</li>
+              <li>Use clear commit messages and keep your code readable</li>
+              <li>Stick to responsive, modern UI with gradients, cards, and consistent theme</li>
+              <li>Maintain the resource JSON hierarchy: <span>University → Courses → Branches → Years → Subjects → Resources</span></li>
+              <li>Test on both desktop and mobile before submitting</li>
+              <li>Review our <a href="https://github.com/arjavjain5203/Pustak_Ghar/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">Contributing Guide</a> & <a href="https://github.com/arjavjain5203/Pustak_Ghar/blob/main/CODE_OF_CONDUCT.md" target="_blank" rel="noopener noreferrer">Code of Conduct</a></li>
             </ul>
-          </div>
+          </section>
 
-          <div className="contrib-topic">
-            <h3>⚡ Top Contributors</h3>
+          <section className="contribute-section">
+            <h2>⚡ Top Contributors</h2>
             {loading ? (
-              <p>Loading...</p>
+              <p>Loading contributors...</p>
             ) : (
-              <div className="contrib-list">
+              <div className="contributor-list">
                 {contributors.slice(0, 8).map((user) => (
                   <a
-                    className="contrib-profile"
+                    className="contributor-profile"
                     key={user.id}
                     href={user.html_url}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <img src={user.avatar_url} alt={user.login} className="contrib-avatar" />
+                    <img src={user.avatar_url} alt={user.login} className="contributor-avatar" />
                     <span>{user.login}</span>
                   </a>
                 ))}
               </div>
             )}
-          </div>
+          </section>
+
+          <section className="contribute-section">
+            <h2>💌 Communication</h2>
+            <p>
+              If you have questions or ideas, open an issue or start a discussion.<br />
+              Connect on <a href="https://www.linkedin.com/in/arjavjain5203/" target="_blank" rel="noopener noreferrer">LinkedIn</a> or <a href="https://github.com/arjavjain5203/Pustak_Ghar/issues" target="_blank" rel="noopener noreferrer">GitHub Issues</a>.
+            </p>
+          </section>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
