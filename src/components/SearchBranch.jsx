@@ -1,11 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Branches from "./Branches"; // Import your data here
-import "./SearchBook.css";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "./ui/select";
+import { Button } from "./ui/button";
 
 const Branch = () => {
   const location = useLocation();
-  const [theme, setTheme] = useState("light"); 
+  const [theme, setTheme] = useState("light");
   const queryParams = new URLSearchParams(location.search);
   const university = queryParams.get("university");
   const course = queryParams.get("course");
@@ -44,8 +51,7 @@ const Branch = () => {
     }
   };
 
-  const handleBranchChange = (e) => {
-    const selectedBranch = e.target.value;
+  const handleBranchChange = (selectedBranch) => {
     setBranch(selectedBranch);
 
     const courseData = Branches.courses.find(c => c.courseName === course);
@@ -95,97 +101,49 @@ const Branch = () => {
             className="form-inline justify-content-center flex-column"
           >
             <div className="form-group mx-2 mb-3">
-              <select
-                className="form-control"
-                value={branch}
-                onChange={handleBranchChange}
-                style={
-                  theme === "dark"
-                    ? {
-                        backgroundColor: "rgba(30, 30, 30, 0.85)",
-                        color: "#eee",
-                        border: "1px solid #ff6f61",
-                        padding: "12px",
-                        width: "100%",
-                      }
-                    : undefined
-                }
-              >
-                <option value="">Select Branch</option>
-                {availableBranches.length > 0 ? (
-                  availableBranches.map((branchOption, index) => (
-                    <option key={index} value={branchOption}>
-                      {branchOption}
-                    </option>
-                  ))
-                ) : (
-                  <option value="">No branches available</option>
-                )}
-              </select>
+              <Select onValueChange={handleBranchChange}>
+                <SelectTrigger className="w-[280px]">
+                  <SelectValue placeholder="Select Branch" />
+                </SelectTrigger>
+                <SelectContent>
+                  {availableBranches.length > 0 ? (
+                    availableBranches.map((branchOption, index) => (
+                      <SelectItem key={index} value={branchOption}>
+                        {branchOption}
+                      </SelectItem>
+                    ))
+                  ) : (
+                    <SelectItem value="no-branches" disabled>No branches available</SelectItem>
+                  )}
+                </SelectContent>
+              </Select>
             </div>
             <div className="form-group mx-2 mb-3">
-              <select
-                className="form-control"
-                value={year}
-                onChange={(e) => setYear(e.target.value)}
-                style={
-                  theme === "dark"
-                    ? {
-                        backgroundColor: "rgba(30, 30, 30, 0.85)",
-                        color: "#eee",
-                        border: "1px solid #ff6f61",
-                        padding: "12px",
-                        width: "100%",
-                      }
-                    : undefined
-                }
-              >
-                <option value="">Select Year</option>
-                {availableYears.length > 0 ? (
-                  availableYears.map((yearOption, index) => (
-                    <option key={index} value={yearOption}>
-                      {yearOption}
-                    </option>
-                  ))
-                ) : (
-                  <option value="">No years available</option>
-                )}
-              </select>
+              <Select onValueChange={setYear} disabled={!branch}>
+                <SelectTrigger className="w-[280px]">
+                  <SelectValue placeholder="Select Year" />
+                </SelectTrigger>
+                <SelectContent>
+                  {availableYears.length > 0 ? (
+                    availableYears.map((yearOption, index) => (
+                      <SelectItem key={index} value={yearOption}>
+                        {yearOption}
+                      </SelectItem>
+                    ))
+                  ) : (
+                    <SelectItem value="no-years" disabled>No years available</SelectItem>
+                  )}
+                </SelectContent>
+              </Select>
             </div>
             <div className="mt-3">
-              <button
+              <Button
                 type="submit"
                 className="btn btn-danger mx-2"
-                style={
-                  theme === "dark"
-                    ? {
-                        backgroundColor: "#ff6f61",
-                        color: "#121212",
-                        border: "none",
-                        padding: "12px 25px",
-                        width: "100%",
-                        cursor: "pointer",
-                        transition: "all 0.3s ease-in-out",
-                      }
-                    : undefined
-                }
-                onMouseEnter={(e) => {
-                  if (theme === "dark") {
-                    e.currentTarget.style.backgroundColor = "#ff3b30";
-                    e.currentTarget.style.color = "#fff";
-                    e.currentTarget.style.transform = "scale(1.1)";
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (theme === "dark") {
-                    e.currentTarget.style.backgroundColor = "#ff6f61";
-                    e.currentTarget.style.color = "#121212";
-                    e.currentTarget.style.transform = "scale(1)";
-                  }
-                }}
+                disabled={!branch || !year}
               >
                 Search
-              </button>
+              </Button>
             </div>
           </form>
         )}

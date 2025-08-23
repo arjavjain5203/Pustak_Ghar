@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Branches from "./Branches"; // Import your data here
-import "./SearchBook.css";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "./ui/card";
+import { Button } from "./ui/button";
 
 const SubjectsPage = () => {
   const location = useLocation();
@@ -12,24 +19,28 @@ const SubjectsPage = () => {
   const year = queryParams.get("year");
   const [theme, setTheme] = useState("light"); // or dark
 
-
   const [subjects, setSubjects] = useState([]);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     if (university && course && branch && year) {
-      const universityData = Branches.universityName === university ? Branches : null;
-      
+      const universityData =
+        Branches.universityName === university ? Branches : null;
+
       if (universityData) {
-        const courseData = universityData.courses.find((c) => c.courseName === course);
-        
+        const courseData = universityData.courses.find(
+          (c) => c.courseName === course
+        );
+
         if (courseData) {
-          const branchData = courseData.branches.find((b) => b.branchName === branch);
-          
+          const branchData = courseData.branches.find(
+            (b) => b.branchName === branch
+          );
+
           if (branchData) {
             const yearData = branchData.years.find((y) => y.year === year);
-            
+
             if (yearData) {
               setSubjects(yearData.subjects || []);
             } else {
@@ -63,168 +74,128 @@ const SubjectsPage = () => {
   };
 
   return (
-<div className={`hero ${theme === "dark" ? "hero-dark" : ""}`}>
-  <div className="container py-5">
-    <div className="row justify-content-center">
-      <div className="col-md-8 text-center">
-        <h2 className={`mb-4 ${theme === "dark" ? "text-danger-dark" : "text-danger"}`}>
-          Subjects List
-        </h2>
-        {error && <p className={`text-danger ${theme === "dark" ? "text-danger-dark" : ""}`}>{error}</p>}
-        {!error && subjects.length > 0 ? (
-          <div className="d-flex flex-wrap justify-content-center">
-            {subjects.map((subject, index) => (
-              <div key={index} className={`subject-card m-2 p-3 border ${theme === "dark" ? "subject-card-dark border-dark" : ""}`}>
-                <h4 className="subject-title">{subject.subjectName}</h4>
-                <button
-                  className={`btn m-2 rounded ${theme === "dark" ? "btn-dark-mode" : "btn-light text-danger"}`}
-                  onClick={() => handleSubjectClick(subject)}
-                >
-                  View Details
-                </button>
-                    {/* Render Notes */}
-                   <div className={`notes ${theme === "dark" ? "notes-dark" : ""}`}>
-  <h5 className={theme === "dark" ? "text-light" : ""}>Notes:</h5>
-  {subject.Note.map((note, index) => (
-    <a
-      key={index}
-      href={note.noteLink}
-      className={`d-block ${theme === "dark" ? "text-info-dark" : "text-info"}`}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      {note.title}
-    </a>
-  ))}
-</div>
+    <div className={`hero ${theme === "dark" ? "hero-dark" : ""}`}>
+      <div className="container py-5">
+        <div className="row justify-content-center">
+          <div className="col-md-8 text-center">
+            <h2
+              className={`mb-4 ${
+                theme === "dark" ? "text-danger-dark" : "text-danger"
+              }`}
+            >
+              Subjects List
+            </h2>
+            {error && (
+              <p
+                className={`text-danger ${
+                  theme === "dark" ? "text-danger-dark" : ""
+                }`}
+              >
+                {error}
+              </p>
+            )}
+            {!error && subjects.length > 0 ? (
+              <div className="d-flex flex-wrap justify-content-center">
+                {subjects.map((subject, index) => (
+                  <Card
+                    key={index}
+                    className={`subject-card m-2 p-3 border ${
+                      theme === "dark" ? "subject-card-dark border-dark" : ""
+                    }`}
+                  >
+                    <CardHeader>
+                      <CardTitle>{subject.subjectName}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      {/* Render Notes */}
+                      <div
+                        className={`notes ${
+                          theme === "dark" ? "notes-dark" : ""
+                        }`}
+                      >
+                        <h5 className={theme === "dark" ? "text-light" : ""}>
+                          Notes:
+                        </h5>
+                        {subject.Note.map((note, index) => (
+                          <a
+                            key={index}
+                            href={note.noteLink}
+                            className={`d-block ${
+                              theme === "dark" ? "text-info-dark" : "text-info"
+                            }`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {note.title}
+                          </a>
+                        ))}
+                      </div>
 
+                      {/* Render YouTube Link */}
+                      {subject.youtubeLink && (
+                        <div className="youtube-link">
+                          <h5>{subject.youtubeLink.title}</h5>
 
-                    {/* Render YouTube Link */}
-                    {subject.youtubeLink && (
-  <div
-    className="youtube-link"
-    style={theme === "dark" ? {
-      backgroundColor: "#1e1e1e",
-      padding: "1rem",
-      borderRadius: "6px",
-      color: "#f0f0f0",
-    } : undefined}
-  >
-    <h5 style={theme === "dark" ? { color: "#f0f0f0" } : undefined}>
-      {subject.youtubeLink.title}
-    </h5>
+                          <Button
+                            className="btn btn-danger"
+                            onClick={() =>
+                              handleYoutube(subject.youtubeLink.link)
+                            }
+                          >
+                            Watch Tutorial
+                          </Button>
 
-    <button
-      className="btn btn-danger"
-      onClick={() => handleYoutube(subject.youtubeLink.link)}
-      style={theme === "dark" ? {
-        backgroundColor: "#c53030",
-        borderColor: "#9b2c2c",
-        color: "white",
-        transition: "background-color 0.3s ease",
-      } : undefined}
-      onMouseEnter={e => {
-        if (theme === "dark") {
-          e.currentTarget.style.backgroundColor = "#9b2c2c";
-          e.currentTarget.style.borderColor = "#742a2a";
-          e.currentTarget.style.color = "white";
-        }
-      }}
-      onMouseLeave={e => {
-        if (theme === "dark") {
-          e.currentTarget.style.backgroundColor = "#c53030";
-          e.currentTarget.style.borderColor = "#9b2c2c";
-          e.currentTarget.style.color = "white";
-        }
-      }}
-    >
-      Watch Tutorial
-    </button>
+                          {subject.youtubeLink.documents &&
+                            subject.youtubeLink.documents.map((doc, index) => (
+                              <Button
+                                key={index}
+                                variant="outline"
+                                className="m-2"
+                                onClick={() => handleDownload(doc.docLink)}
+                              >
+                                {doc.title} (Download PDF)
+                              </Button>
+                            ))}
+                        </div>
+                      )}
 
-    {subject.youtubeLink.documents &&
-      subject.youtubeLink.documents.map((doc, index) => (
-        <button
-          key={index}
-          className="btn btn-outline-info m-2"
-          onClick={() => handleDownload(doc.docLink)}
-          style={theme === "dark" ? {
-            color: "#63b3ed",
-            borderColor: "#63b3ed",
-            backgroundColor: "transparent",
-            transition: "background-color 0.3s ease, color 0.3s ease",
-          } : undefined}
-          onMouseEnter={e => {
-            if (theme === "dark") {
-              e.currentTarget.style.backgroundColor = "#63b3ed";
-              e.currentTarget.style.color = "#1e1e1e";
-            }
-          }}
-          onMouseLeave={e => {
-            if (theme === "dark") {
-              e.currentTarget.style.backgroundColor = "transparent";
-              e.currentTarget.style.color = "#63b3ed";
-            }
-          }}
-        >
-          {doc.title} (Download PDF)
-        </button>
-      ))}
-  </div>
-)}
+                      <div className="pyq">
+                        <h5>Previous Year Questions:</h5>
+                        {subject.PYQ.map((pyq, index) => (
+                          <a
+                            key={index}
+                            href={pyq.link}
+                            className="d-block"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {pyq.title}
+                          </a>
+                        ))}
+                      </div>
 
-
-                    <div
-  className="pyq"
-  style={theme === "dark" ? { backgroundColor: "#1e1e1e", padding: "1rem", borderRadius: "6px", color: "#e0e0e0" } : undefined}
->
-  <h5 style={theme === "dark" ? { color: "#f0f0f0" } : undefined}>Previous Year Questions:</h5>
-  {subject.PYQ.map((pyq, index) => (
-    <a
-      key={index}
-      href={pyq.link}
-      className="d-block"
-      target="_blank"
-      rel="noopener noreferrer"
-      style={theme === "dark" ? { color: "#63b3ed" } : { color: "#17a2b8" }} // text-info blue or custom dark blue
-      onMouseEnter={e => {
-        if (theme === "dark") e.currentTarget.style.color = "#4299e1";
-      }}
-      onMouseLeave={e => {
-        if (theme === "dark") e.currentTarget.style.color = "#63b3ed";
-      }}
-    >
-      {pyq.title}
-    </a>
-  ))}
-</div>
-
-{/* Render Syllabus */}
-<div
-  className="syllabus"
-  style={theme === "dark" ? { backgroundColor: "#1e1e1e", padding: "1rem", borderRadius: "6px", color: "#e0e0e0", marginTop: "1rem" } : undefined}
->
-  <h5 style={theme === "dark" ? { color: "#f0f0f0" } : undefined}>Syllabus:</h5>
-  {subject.syllabus.map((item, index) => (
-    <a
-      key={index}
-      href={item.link}
-      className="d-block"
-      target="_blank"
-      rel="noopener noreferrer"
-      style={theme === "dark" ? { color: "#63b3ed" } : { color: "#17a2b8" }}
-      onMouseEnter={e => {
-        if (theme === "dark") e.currentTarget.style.color = "#4299e1";
-      }}
-      onMouseLeave={e => {
-        if (theme === "dark") e.currentTarget.style.color = "#63b3ed";
-      }}
-    >
-      {item.title}
-    </a>
-  ))}
-</div>
-
-                  </div>
+                      {/* Render Syllabus */}
+                      <div className="syllabus">
+                        <h5>Syllabus:</h5>
+                        {subject.syllabus.map((item, index) => (
+                          <a
+                            key={index}
+                            href={item.link}
+                            className="d-block"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {item.title}
+                          </a>
+                        ))}
+                      </div>
+                    </CardContent>
+                    <CardFooter>
+                      <Button onClick={() => handleSubjectClick(subject)}>
+                        View Details
+                      </Button>
+                    </CardFooter>
+                  </Card>
                 ))}
               </div>
             ) : (

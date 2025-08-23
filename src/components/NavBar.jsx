@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import "./NavBar.css";
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  navigationMenuTriggerStyle,
+} from "./ui/navigation-menu";
 import NoHeaderPaths from "./NoNavbarpath";
 import Logo from '../assets/main-logo.jpg';
+import { Button } from "./ui/button";
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -11,7 +18,13 @@ const NavBar = () => {
 
   // Always call hooks unconditionally
   useEffect(() => {
+    // Update both the data-theme attribute and the class for Tailwind
     document.documentElement.setAttribute("data-theme", theme);
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
   }, [theme]);
 
   // Early return if path matches no-navbar paths
@@ -28,55 +41,56 @@ const NavBar = () => {
   };
 
   return (
-    <div className={`navbar-container ${theme === "light" ? "bg-white" : "bg-dark"}`}>
-      <Link to="/"  className={`nav-link ${theme === "light" ? "text-danger" : "text-danger-light"}`}>
-        <div className="navbar-logo">
-          <img src={Logo} alt="Logo" className="logo-img" />
-          <p className={`logo-text ${theme === "light" ? "text-black" : "text-light"}`}>
-            <span className="text-danger">Pustak</span> <span>Ghar</span>
-          </p>
-        </div>
-      </Link>
-
-      <div className={`navbar-links ${menuOpen ? `show ${theme === "light" ? "bg-white" : "bg-dark"}` : ""}`}>
-        <Link to="/" className={`nav-link ${theme === "light" ? "text-danger" : "text-danger-light"}`}>HOME</Link>
-        <Link to="/more" className={`nav-link ${theme === "light" ? "text-black" : "text-light"}`}>MORE</Link>
-        <Link to="/" className={`nav-link ${theme === "light" ? "text-black" : "text-light"}`}>JOIN</Link>
-        <Link to="/about" className={`nav-link ${theme === "light" ? "text-danger" : "text-light"}`}>ABOUT</Link>
-        <Link to="/contribute" className={`nav-link ${theme === "light" ? "text-danger" : "text-light"}`}>CONTRIBUTE</Link>
-        <Link to="/upload" className={`nav-link ${theme === "light" ? "text-black" : "text-light"}`}>UPLOAD</Link>
-      </div>
-
-      <div className="nav-controls" style={{ display: "flex", alignItems: "center" }}>
-        <button
+    <div className="flex justify-between items-center p-4 sticky top-0 z-50 bg-background border-b transition-colors duration-300">
+      <NavigationMenu>
+        <NavigationMenuList className="flex items-center space-x-6">
+          <NavigationMenuItem>
+            <Link to="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
+              <img src={Logo} alt="Logo" className="w-10 h-auto" />
+              <p className="text-2xl font-mono font-bold">
+                <span className="text-red-500">Pustak</span>{" "}
+                <span className="text-foreground">Ghar</span>
+              </p>
+            </Link>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <Link to="/" className={navigationMenuTriggerStyle()}>HOME</Link>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <Link to="/more" className={navigationMenuTriggerStyle()}>MORE</Link>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <Link to="/" className={navigationMenuTriggerStyle()}>JOIN</Link>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <Link to="/about" className={navigationMenuTriggerStyle()}>ABOUT</Link>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <Link to="/contribute" className={navigationMenuTriggerStyle()}>CONTRIBUTE</Link>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <Link to="/upload" className={navigationMenuTriggerStyle()}>UPLOAD</Link>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
+      
+      <div className="flex items-center space-x-4">
+        <Button
           onClick={toggleTheme}
-          aria-label="Toggle light/dark theme"
-          className={`theme-toggle-btn ${theme}`}
-          style={{
-            marginRight: "1rem",
-            cursor: "pointer",
-            borderRadius: "4px",
-            border: "none",
-            padding: "0.3rem 0.7rem",
-            backgroundColor: theme === "light" ? "#ffeb3b" : "#222",
-            color: theme === "light" ? "#000" : "#ffeb3b",
-            fontWeight: "bold",
-          }}
+          variant="outline"
+          size="sm"
+          className="font-bold"
         >
           {theme === "light" ? "🌞 Light" : "🌙 Dark"}
-        </button>
+        </Button>
 
-        <div
-          className={`hamburger ${theme === "light" ? "text-black" : "text-light"}`}
+        <button
+          className="text-2xl cursor-pointer hover:opacity-80 transition-opacity lg:hidden"
           onClick={toggleMenu}
-          style={{ cursor: "pointer", fontSize: "1.5rem" }}
           aria-label="Toggle menu"
-          role="button"
-          tabIndex={0}
-          onKeyDown={(e) => { if (e.key === "Enter") toggleMenu(); }}
         >
           ☰
-        </div>
+        </button>
       </div>
     </div>
   );
