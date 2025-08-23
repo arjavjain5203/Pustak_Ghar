@@ -1,7 +1,6 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Branches from "./Branches";
-import { useState } from "react";
 import {
   Card,
   CardContent,
@@ -12,11 +11,9 @@ import { Button } from "./ui/button";
 
 const SubjectDetails = () => {
   const location = useLocation();
-  const [theme, setTheme] = useState("light");
+  const navigate = useNavigate();
   const queryParams = new URLSearchParams(location.search);
   const subjectName = queryParams.get("subject");
-  const navigate = useNavigate();
-  const isDark = theme === "dark";
 
   // Find the subject data from Branches
   let subjectData = null;
@@ -37,55 +34,20 @@ const SubjectDetails = () => {
     if (subjectData) break;
   }
 
-  const handleDownload = (link) => {
-    window.open(link, "_blank");
-  };
-
   const handleYoutube = (link) => {
     window.open(link, "_blank");
   };
 
   if (!subjectData) {
     return (
-   <div
-        className="hero"
-        style={
-          theme === "dark"
-            ? {
-                background:
-                  "linear-gradient(45deg, #0d0d0d, #1a1a1a, #333333)",
-                minHeight: "100vh",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                color: "#e0e0e0",
-                padding: "3rem 0",
-              }
-            : {
-                background:
-                  "linear-gradient(45deg, #ff0000, #000000, #ffffff)",
-                minHeight: "100vh",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                color: "#000",
-                padding: "3rem 0",
-              }
-        }
-      >
-        <div
-          className="container py-5"
-          style={theme === "dark" ? { maxWidth: "90%", width: "90%" } : undefined}
-        >
-          <div className="row justify-content-center">
-            <div className="col-md-8 text-center">
-              <h2
-                className="mb-4"
-                style={theme === "dark" ? { color: "#ff6f61" } : { color: "#dc3545" }}
-              >
+      <div className="min-h-screen bg-gradient-to-br from-red-500 via-black to-white dark:from-zinc-800 dark:via-zinc-900 dark:to-zinc-700 flex items-center justify-center py-12">
+        <div className="max-w-6xl mx-auto py-12 px-6">
+          <div className="text-center">
+            <div className="max-w-2xl mx-auto">
+              <h2 className="text-3xl font-bold mb-6 text-red-500 dark:text-red-400">
                 Subject Not Found
               </h2>
-              <p style={theme === "dark" ? { color: "#ccc" } : { color: "#333" }}>
+              <p className="text-gray-700 dark:text-gray-300">
                 The requested subject could not be found.
               </p>
               <Button
@@ -102,29 +64,18 @@ const SubjectDetails = () => {
   }
 
   return (
-    <div
-      className="hero"
-      style={{
-        background: isDark
-          ? "linear-gradient(45deg, #0d0d0d, #1a1a1a, #333333)"
-          : "linear-gradient(45deg, #ff0000, #000000, #ffffff)",
-        minHeight: "100vh",
-        padding: "2rem 0",
-        color: isDark ? "#eee" : "#000",
-      }}
-    >
-      <div className="container py-5" style={{ maxWidth: "90%", width: "90%" }}>
-        <div className="row justify-content-center">
-          <div className="col-md-8">
-            <div className="text-center mb-4">
-              <h2
-                className="mb-4"
-                style={{ color: isDark ? "#ff6f61" : "#dc3545" }}
-              >
+    <div className="min-h-screen bg-gradient-to-br from-red-500 via-black to-white dark:from-zinc-800 dark:via-zinc-900 dark:to-zinc-700 py-8">
+      <div className="max-w-6xl mx-auto py-12 px-6">
+        <div className="text-center">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-bold mb-6 text-red-500 dark:text-red-400">
                 {subjectData.subjectName}
               </h2>
               <Button
                 onClick={() => navigate(-1)}
+                variant="outline"
+                className="mb-6"
               >
                 Back to Subjects
               </Button>
@@ -132,17 +83,17 @@ const SubjectDetails = () => {
 
             {/* Notes Section */}
             {subjectData.Note && (
-              <Card className="mb-4">
+              <Card className="mb-6">
                 <CardHeader>
                   <CardTitle>Notes</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="list-group">
+                  <div className="space-y-3">
                     {subjectData.Note.map((note, index) => (
                       <a
                         key={index}
                         href={note.noteLink}
-                        className="list-group-item list-group-item-action"
+                        className="block p-4 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -156,13 +107,14 @@ const SubjectDetails = () => {
 
             {/* YouTube Link Section */}
             {subjectData.youtubeLink && (
-              <Card className="mb-4">
+              <Card className="mb-6">
                 <CardHeader>
                   <CardTitle>Video Tutorials</CardTitle>
                 </CardHeader>
                 <CardContent className="text-center">
                   <Button
                     onClick={() => handleYoutube(subjectData.youtubeLink.link)}
+                    className="bg-red-600 hover:bg-red-700 text-white"
                   >
                     Watch {subjectData.youtubeLink.title}
                   </Button>
@@ -172,14 +124,14 @@ const SubjectDetails = () => {
 
             {/* PYQ Section */}
             {subjectData.PYQ && (
-              <Card className="mb-4">
+              <Card className="mb-6">
                 <CardHeader>
                   <CardTitle>Previous Year Questions</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <a
                     href={subjectData.PYQ.link}
-                    className="btn btn-outline"
+                    className="inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -191,14 +143,14 @@ const SubjectDetails = () => {
 
             {/* Syllabus Section */}
             {subjectData.syllabus && (
-              <Card className="mb-4">
+              <Card className="mb-6">
                 <CardHeader>
                   <CardTitle>Syllabus</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <a
                     href={subjectData.syllabus.link}
-                    className="btn btn-outline"
+                    className="inline-block px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors duration-200"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

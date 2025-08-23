@@ -5,8 +5,7 @@ import { Button } from "./ui/button";
 
 const SubjectsPage = () => {
   const location = useLocation();
-  const [theme, setTheme] = useState("light");
-    const isDark = theme === "dark";
+  const navigate = useNavigate();
   const queryParams = new URLSearchParams(location.search);
   const university = queryParams.get("university");
   const course = queryParams.get("course");
@@ -15,7 +14,6 @@ const SubjectsPage = () => {
 
   const [subjects, setSubjects] = useState([]);
   const [error, setError] = useState(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (university && course && branch && year) {
@@ -56,37 +54,26 @@ const SubjectsPage = () => {
 
   return (
    <div
-      className="hero"
-      style={{
-        background: isDark
-          ? "linear-gradient(45deg, #0d0d0d, #1a1a1a, #333333)"
-          : "linear-gradient(45deg, #ff0000, #000000, #ffffff)",
-        minHeight: "100vh",
-        padding: "3rem 0",
-        color: isDark ? "#e0e0e0" : "#000",
-      }}
+      className="min-h-screen bg-gradient-to-br from-red-500 via-black to-white dark:from-zinc-800 dark:via-zinc-900 dark:to-zinc-700 py-12"
     >
-      <div className="container py-5" style={{ maxWidth: "90%", width: "90%" }}>
-        <div className="row justify-content-center">
-          <div className="col-md-8 text-center">
-            <h2
-              className="mb-4"
-              style={{ color: isDark ? "#ff6f61" : "#dc3545" }}
-            >
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="text-center">
+          <div className="max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold mb-6 text-red-500 dark:text-red-400">
               Subjects List
             </h2>
             {error && (
-              <p className="text-danger" style={{ color: isDark ? "#ff6f61" : undefined }}>
+              <p className="text-red-500 dark:text-red-400 mb-4">
                 {error}
               </p>
             )}
             {!error && subjects.length > 0 ? (
-              <div className="d-flex flex-wrap justify-content-center">
+              <div className="flex flex-wrap justify-center gap-4">
                 {subjects.map((subject, index) => (
                   <Button
                     key={index}
                     onClick={() => handleSubjectClick(subject)}
-                    className="m-2 rounded"
+                    className="px-6 py-3 bg-white/90 dark:bg-zinc-800/90 text-gray-900 dark:text-white border-2 border-white/50 dark:border-zinc-700 hover:bg-white dark:hover:bg-zinc-700 transition-colors"
                     variant="outline"
                   >
                     {subject.subjectName}
@@ -94,7 +81,7 @@ const SubjectsPage = () => {
                 ))}
               </div>
             ) : (
-              <p style={{ color: isDark ? "#ccc" : undefined }}>
+              <p className="text-gray-300 dark:text-gray-400">
                 No subjects available for the selected options.
               </p>
             )}

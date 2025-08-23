@@ -42,14 +42,22 @@ const faqData = [
 
 const FAQ = () => {
   return (
-    <section className="faq-section">
-      <h2>Frequently Asked Questions (FAQ)</h2>
+    <section className="max-w-4xl mx-auto py-12 px-6">
+      <h2 className="text-3xl font-bold text-center mb-8 text-gray-900 dark:text-white">
+        Frequently Asked Questions (FAQ)
+      </h2>
 
-      <Accordion type="single" collapsible className="w-full">
+      <Accordion type="single" collapsible className="w-full space-y-4">
         {faqData.map((item, index) => (
-          <AccordionItem value={`item-${index}`} key={index}>
-            <AccordionTrigger>{item.question}</AccordionTrigger>
-            <AccordionContent>
+          <AccordionItem 
+            value={`item-${index}`} 
+            key={index}
+            className="border border-gray-200 dark:border-gray-700 rounded-lg px-6 py-2"
+          >
+            <AccordionTrigger className="text-left font-semibold text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              {item.question}
+            </AccordionTrigger>
+            <AccordionContent className="text-gray-700 dark:text-gray-300 pt-2 pb-4 leading-relaxed">
               {item.answer}
             </AccordionContent>
           </AccordionItem>

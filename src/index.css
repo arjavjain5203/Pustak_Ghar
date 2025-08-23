@@ -73,3 +73,23 @@ img, video, canvas, svg { display: block; max-width: 100%; height: auto; }
 
 /* Prevent horizontal scrolling caused by long words/URLs */
 * { overflow-wrap: anywhere; word-break: break-word; }
+
+/* Custom animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.fade-in-50 {
+  animation-duration: 0.5s;
+}
