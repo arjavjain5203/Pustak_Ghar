@@ -1,18 +1,26 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Branches from "./Branches";
-import "./SearchBook.css";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "./ui/select";
+import { Button } from "./ui/button";
+
 
 const Search = () => {
   const [university, setUniversity] = useState("");
   const [course, setCourse] = useState("");
-  const [theme, setTheme] = useState("light"); 
+  const [theme, setTheme] = useState("light");
   const navigate = useNavigate();
 
   const universityName = Branches?.universityName;
 
-  const courses = Array.isArray(Branches?.courses) 
-    ? Branches.courses.map((course) => course.courseName) 
+  const courses = Array.isArray(Branches?.courses)
+    ? Branches.courses.map((course) => course.courseName)
     : [];
 
   const handleSubmit = (event) => {
@@ -47,46 +55,45 @@ const Search = () => {
               className="form-inline justify-content-center flex-column"
             >
               <div className="form-group mx-2 mb-3">
-                <select
-                  className="form-control"
-                  value={university}
-                  onChange={(e) => setUniversity(e.target.value)}
-                >
-                  <option value="">Select University</option>
-                  {universityName && (
-                    <option value={universityName}>{universityName}</option>
-                  )}
-                </select>
+                <Select onValueChange={setUniversity}>
+                  <SelectTrigger className="w-[280px]">
+                    <SelectValue placeholder="Select University" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {universityName && (
+                      <SelectItem value={universityName}>{universityName}</SelectItem>
+                    )}
+                  </SelectContent>
+                </Select>
               </div>
 
               <div className="form-group mx-2 mb-3">
-                <select
-                  className="form-control"
-                  value={course}
-                  onChange={(e) => setCourse(e.target.value)}
-                  disabled={!university}
-                >
-                  <option value="">Select Course</option>
-                  {courses.length > 0 ? (
-                    courses.map((courseName, index) => (
-                      <option key={index} value={courseName}>
-                        {courseName}
-                      </option>
-                    ))
-                  ) : (
-                    <option>No courses available</option>
-                  )}
-                </select>
+                <Select onValueChange={setCourse} disabled={!university}>
+                  <SelectTrigger className="w-[280px]">
+                    <SelectValue placeholder="Select Course" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {courses.length > 0 ? (
+                      courses.map((courseName, index) => (
+                        <SelectItem key={index} value={courseName}>
+                          {courseName}
+                        </SelectItem>
+                      ))
+                    ) : (
+                      <SelectItem value="no-courses" disabled>No courses available</SelectItem>
+                    )}
+                  </SelectContent>
+                </Select>
               </div>
 
               <div className="mt-3">
-                <button
+                <Button
                   type="submit"
                   className="btn btn-danger mx-2"
                   disabled={!university || !course}
                 >
                   Search
-                </button>
+                </Button>
               </div>
             </form>
           </div>

@@ -2,7 +2,13 @@ import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Branches from "./Branches";
 import { useState } from "react";
-import "./SearchBook.css";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "./ui/card";
+import { Button } from "./ui/button";
 
 const SubjectDetails = () => {
   const location = useLocation();
@@ -11,27 +17,6 @@ const SubjectDetails = () => {
   const subjectName = queryParams.get("subject");
   const navigate = useNavigate();
   const isDark = theme === "dark";
-
-  const cardStyle = {
-    backgroundColor: isDark ? "#222" : "#fff",
-    color: isDark ? "#eee" : "#000",
-  };
-
-  const cardHeaderStyle = {
-    backgroundColor: isDark ? "#b22222" : "#dc3545", // dark red vs bootstrap danger
-    color: "#fff",
-  };
-
-  const linkBtnStyle = {
-    color: isDark ? "#fff" : "#dc3545",
-    borderColor: isDark ? "#fff" : "#dc3545",
-  };
-
-  const btnStyle = {
-    backgroundColor: isDark ? "#b22222" : "#dc3545",
-    color: "#fff",
-    border: "none",
-  };
 
   // Find the subject data from Branches
   let subjectData = null;
@@ -103,38 +88,12 @@ const SubjectDetails = () => {
               <p style={theme === "dark" ? { color: "#ccc" } : { color: "#333" }}>
                 The requested subject could not be found.
               </p>
-              <button
-                className="btn btn-danger"
+              <Button
+                variant="destructive"
                 onClick={() => navigate(-1)}
-                style={
-                  theme === "dark"
-                    ? {
-                        backgroundColor: "#ff6f61",
-                        color: "#121212",
-                        border: "none",
-                        padding: "12px 25px",
-                        cursor: "pointer",
-                        transition: "all 0.3s ease-in-out",
-                      }
-                    : undefined
-                }
-                onMouseEnter={(e) => {
-                  if (theme === "dark") {
-                    e.currentTarget.style.backgroundColor = "#ff3b30";
-                    e.currentTarget.style.color = "#fff";
-                    e.currentTarget.style.transform = "scale(1.05)";
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (theme === "dark") {
-                    e.currentTarget.style.backgroundColor = "#ff6f61";
-                    e.currentTarget.style.color = "#121212";
-                    e.currentTarget.style.transform = "scale(1)";
-                  }
-                }}
               >
                 Go Back
-              </button>
+              </Button>
             </div>
           </div>
         </div>
@@ -164,41 +123,20 @@ const SubjectDetails = () => {
               >
                 {subjectData.subjectName}
               </h2>
-              <button
-                className="btn"
+              <Button
                 onClick={() => navigate(-1)}
-                style={{
-                  ...btnStyle,
-                  marginBottom: "1rem",
-                  padding: "0.5rem 1rem",
-                }}
-                onMouseEnter={(e) => {
-                  if (isDark) {
-                    e.currentTarget.style.backgroundColor = "#ff3b30";
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (isDark) {
-                    e.currentTarget.style.backgroundColor = "#b22222";
-                  }
-                }}
               >
                 Back to Subjects
-              </button>
+              </Button>
             </div>
 
             {/* Notes Section */}
             {subjectData.Note && (
-              <div
-                className="card mb-4"
-                style={{
-                  ...cardStyle,
-                }}
-              >
-                <div className="card-header" style={cardHeaderStyle}>
-                  <h4>Notes</h4>
-                </div>
-                <div className="card-body">
+              <Card className="mb-4">
+                <CardHeader>
+                  <CardTitle>Notes</CardTitle>
+                </CardHeader>
+                <CardContent>
                   <div className="list-group">
                     {subjectData.Note.map((note, index) => (
                       <a
@@ -207,87 +145,67 @@ const SubjectDetails = () => {
                         className="list-group-item list-group-item-action"
                         target="_blank"
                         rel="noopener noreferrer"
-                        style={{
-                          backgroundColor: isDark ? "#444" : "#f8f9fa",
-                          color: isDark ? "#eee" : "#000",
-                          borderColor: isDark ? "#555" : "#ddd",
-                        }}
                       >
                         {note.title}
                       </a>
                     ))}
                   </div>
-                </div>
-              </div>
+                </CardContent>
+              </Card>
             )}
 
             {/* YouTube Link Section */}
             {subjectData.youtubeLink && (
-              <div
-                className="card mb-4"
-                style={{
-                  ...cardStyle,
-                }}
-              >
-                <div className="card-header" style={cardHeaderStyle}>
-                  <h4>Video Tutorials</h4>
-                </div>
-                <div className="card-body text-center">
-                  <button
-                    className="btn"
+              <Card className="mb-4">
+                <CardHeader>
+                  <CardTitle>Video Tutorials</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <Button
                     onClick={() => handleYoutube(subjectData.youtubeLink.link)}
-                    style={btnStyle}
-                    onMouseEnter={(e) => {
-                      if (isDark) e.currentTarget.style.backgroundColor = "#ff3b30";
-                    }}
-                    onMouseLeave={(e) => {
-                      if (isDark) e.currentTarget.style.backgroundColor = "#b22222";
-                    }}
                   >
                     Watch {subjectData.youtubeLink.title}
-                  </button>
-                </div>
-              </div>
+                  </Button>
+                </CardContent>
+              </Card>
             )}
 
             {/* PYQ Section */}
             {subjectData.PYQ && (
-              <div className="card mb-4" style={{ ...cardStyle }}>
-                <div className="card-header" style={cardHeaderStyle}>
-                  <h4>Previous Year Questions</h4>
-                </div>
-                <div className="card-body">
+              <Card className="mb-4">
+                <CardHeader>
+                  <CardTitle>Previous Year Questions</CardTitle>
+                </CardHeader>
+                <CardContent>
                   <a
                     href={subjectData.PYQ.link}
                     className="btn btn-outline"
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={linkBtnStyle}
                   >
                     {subjectData.PYQ.title}
                   </a>
-                </div>
-              </div>
+                </CardContent>
+              </Card>
             )}
 
             {/* Syllabus Section */}
             {subjectData.syllabus && (
-              <div className="card mb-4" style={{ ...cardStyle }}>
-                <div className="card-header" style={cardHeaderStyle}>
-                  <h4>Syllabus</h4>
-                </div>
-                <div className="card-body">
+              <Card className="mb-4">
+                <CardHeader>
+                  <CardTitle>Syllabus</CardTitle>
+                </CardHeader>
+                <CardContent>
                   <a
                     href={subjectData.syllabus.link}
                     className="btn btn-outline"
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={linkBtnStyle}
                   >
                     {subjectData.syllabus.title}
                   </a>
-                </div>
-              </div>
+                </CardContent>
+              </Card>
             )}
           </div>
         </div>

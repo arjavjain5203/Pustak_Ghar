@@ -1,7 +1,8 @@
 import React,{useState} from 'react';
 import { useNavigate } from "react-router-dom";
 import Branches from "./Branches";
-import "./SearchBook.css";
+import { Input } from "./ui/input";
+import { Button } from "./ui/button";
 import axios from "axios";
 
 const Upload = () => {
@@ -14,9 +15,9 @@ const Upload = () => {
         subject: "",
         link: "",
     });
-    
+
     const [file, setFile] = useState(null);
-  const [theme, setTheme] = useState("light"); 
+  const [theme, setTheme] = useState("light");
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -27,7 +28,7 @@ const Upload = () => {
     };
 
     const handleFileChange = (e) => {
-    setFile(e.target.files[0]); 
+    setFile(e.target.files[0]);
   };
 
   const handleSubmit = async (event) => {
@@ -54,7 +55,7 @@ const Upload = () => {
       });
 
       alert("Upload successful ");
-      navigate("/"); 
+      navigate("/");
     } catch (err) {
       console.error("Upload failed ", err);
       alert("Upload failed ");
@@ -83,7 +84,7 @@ const Upload = () => {
 <div className="container py-5" style={theme === "dark" ? { maxWidth: "90%", width: "90%" } : undefined}>
     <div className="row justify-content-center">
       <div className="col-md-8 text-center">
-        
+
         <h2
           className="mb-4"
           style={theme === "dark" ? { color: "#ff6f61" } : { color: "#dc3545" }} // dark mode softer red
@@ -94,13 +95,13 @@ const Upload = () => {
           className="lead mb-4"
           style={theme === "dark" ? { color: "#ccc" } : { color: "#fff" }}
         >
-          SHARE STUDY MATERIALS, NOTES, PYQS, VIDEO PLAYLISTS AND MORE...  
+          SHARE STUDY MATERIALS, NOTES, PYQS, VIDEO PLAYLISTS AND MORE...
         </p>
         <p
           className="lead mb-4"
           style={theme === "dark" ? { color: "#ccc" } : { color: "#fff" }}
         >
-          Let's expand the knowledge base at - PUSTAK GHAR  
+          Let's expand the knowledge base at - PUSTAK GHAR
         </p>
 
         <form
@@ -108,42 +109,34 @@ const Upload = () => {
           className="form-inline justify-content-center flex-column"
         >
           <div className="form-group mx-2 mb-3">
-            <input
-              className={`form-control`}
-
+            <Input
               value={data.university}
               onChange={handleChange}
               placeholder='University Name'
               name="university"
-              
             />
           </div>
 
           <div className="form-group mx-2 mb-3">
-            <input
-               className={`form-control`}
+            <Input
               value={data.course}
               onChange={handleChange}
                placeholder='Course'
                name="course"
-              
             />
           </div>
 
           <div className="form-group mx-2 mb-3">
-            <input
-               className={`form-control`}
+            <Input
               value={data.branch}
               onChange={handleChange}
                placeholder='Branch'
                name="branch"
-              
             />
           </div>
 
           <div className="form-group mx-2 mb-3">
-            <input
-               className={` form-control `}
+            <Input
               value={data.year}
               onChange={handleChange}
                placeholder='Year'
@@ -152,8 +145,7 @@ const Upload = () => {
           </div>
 
           <div className="form-group mx-2 mb-3">
-            <input
-               className={`form-control`}
+            <Input
               value={data.subject}
               onChange={handleChange}
                placeholder='Subject'
@@ -163,35 +155,31 @@ const Upload = () => {
 
           {/* Link Input */}
               <div className="form-group mx-2 mb-3">
-                <input
+                <Input
                   type="url"
-                  className={`form-control`}
                   value={data.link}
                   onChange={handleChange}
                   placeholder="Resource Link (YouTube/Drive/etc)"
                   name="link"
-                  
                 />
               </div>
 
               {/* File Input */}
               <div className="form-group mx-2 mb-3">
-                <input
+                <Input
                   type="file"
                   accept="application/pdf"
-                  className="form-control"
                   onChange={handleFileChange}
-                  
                 />
               </div>
 
           <div className="mt-3">
-            <button
+            <Button
               type="submit"
               className="btn btn-danger mx-2"
             >
               Submit
-            </button>
+            </Button>
           </div>
         </form>
       </div>
@@ -202,4 +190,4 @@ const Upload = () => {
   )
 }
 
-export default Upload
+export default Upload;

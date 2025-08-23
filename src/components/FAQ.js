@@ -1,5 +1,9 @@
-import React, { useState } from "react";
-import "./FAQ.css";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "./ui/accordion";
 
 const faqData = [
   {
@@ -37,28 +41,20 @@ const faqData = [
 ];
 
 const FAQ = () => {
-  const [activeIndex, setActiveIndex] = useState(null);
-
-  const toggleFAQ = (index) => {
-    setActiveIndex(activeIndex === index ? null : index);
-  };
-
   return (
     <section className="faq-section">
       <h2>Frequently Asked Questions (FAQ)</h2>
 
-      {faqData.map((item, index) => (
-        <div
-          key={index}
-          className={`faq-item ${activeIndex === index ? "active" : ""}`}
-          onClick={() => toggleFAQ(index)}
-        >
-          <h4>
-            {index + 1}. {item.question}
-          </h4>
-          {activeIndex === index && <p>{item.answer}</p>}
-        </div>
-      ))}
+      <Accordion type="single" collapsible className="w-full">
+        {faqData.map((item, index) => (
+          <AccordionItem value={`item-${index}`} key={index}>
+            <AccordionTrigger>{item.question}</AccordionTrigger>
+            <AccordionContent>
+              {item.answer}
+            </AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
     </section>
   );
 };

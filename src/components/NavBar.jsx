@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import "./NavBar.css";
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  navigationMenuTriggerStyle,
+} from "./ui/navigation-menu";
 import NoHeaderPaths from "./NoNavbarpath";
 import Logo from '../assets/main-logo.jpg';
+import { Button } from "./ui/button";
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -28,27 +35,39 @@ const NavBar = () => {
   };
 
   return (
-    <div className={`navbar-container ${theme === "light" ? "bg-white" : "bg-dark"}`}>
-      <Link to="/"  className={`nav-link ${theme === "light" ? "text-danger" : "text-danger-light"}`}>
-        <div className="navbar-logo">
-          <img src={Logo} alt="Logo" className="logo-img" />
-          <p className={`logo-text ${theme === "light" ? "text-black" : "text-light"}`}>
-            <span className="text-danger">Pustak</span> <span>Ghar</span>
-          </p>
-        </div>
-      </Link>
-
-      <div className={`navbar-links ${menuOpen ? `show ${theme === "light" ? "bg-white" : "bg-dark"}` : ""}`}>
-        <Link to="/" className={`nav-link ${theme === "light" ? "text-danger" : "text-danger-light"}`}>HOME</Link>
-        <Link to="/more" className={`nav-link ${theme === "light" ? "text-black" : "text-light"}`}>MORE</Link>
-        <Link to="/" className={`nav-link ${theme === "light" ? "text-black" : "text-light"}`}>JOIN</Link>
-        <Link to="/about" className={`nav-link ${theme === "light" ? "text-danger" : "text-light"}`}>ABOUT</Link>
-        <Link to="/contribute" className={`nav-link ${theme === "light" ? "text-danger" : "text-light"}`}>CONTRIBUTE</Link>
-        <Link to="/upload" className={`nav-link ${theme === "light" ? "text-black" : "text-light"}`}>UPLOAD</Link>
-      </div>
-
+    <NavigationMenu>
+      <NavigationMenuList>
+        <NavigationMenuItem>
+          <Link to="/" className={navigationMenuTriggerStyle()}>
+            <div className="navbar-logo">
+              <img src={Logo} alt="Logo" className="logo-img" />
+              <p className={`logo-text ${theme === "light" ? "text-black" : "text-light"}`}>
+                <span className="text-danger">Pustak</span> <span>Ghar</span>
+              </p>
+            </div>
+          </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link to="/" className={navigationMenuTriggerStyle()}>HOME</Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link to="/more" className={navigationMenuTriggerStyle()}>MORE</Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link to="/" className={navigationMenuTriggerStyle()}>JOIN</Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link to="/about" className={navigationMenuTriggerStyle()}>ABOUT</Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link to="/contribute" className={navigationMenuTriggerStyle()}>CONTRIBUTE</Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link to="/upload" className={navigationMenuTriggerStyle()}>UPLOAD</Link>
+        </NavigationMenuItem>
+      </NavigationMenuList>
       <div className="nav-controls" style={{ display: "flex", alignItems: "center" }}>
-        <button
+        <Button
           onClick={toggleTheme}
           aria-label="Toggle light/dark theme"
           className={`theme-toggle-btn ${theme}`}
@@ -61,10 +80,7 @@ const NavBar = () => {
             backgroundColor: theme === "light" ? "#ffeb3b" : "#222",
             color: theme === "light" ? "#000" : "#ffeb3b",
             fontWeight: "bold",
-          }}
-        >
-          {theme === "light" ? "🌞 Light" : "🌙 Dark"}
-        </button>
+          }}>{theme === "light" ? "🌞 Light" : "🌙 Dark"}</Button>
 
         <div
           className={`hamburger ${theme === "light" ? "text-black" : "text-light"}`}
@@ -78,7 +94,7 @@ const NavBar = () => {
           ☰
         </div>
       </div>
-    </div>
+    </NavigationMenu>
   );
 };
 

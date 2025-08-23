@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Branches from "./Branches"; // Import your data here
-import "./SearchBook.css";
+import { Button } from "./ui/button";
 
 const SubjectsPage = () => {
   const location = useLocation();
-  const [theme, setTheme] = useState("light"); 
+  const [theme, setTheme] = useState("light");
     const isDark = theme === "dark";
   const queryParams = new URLSearchParams(location.search);
   const university = queryParams.get("university");
@@ -20,16 +20,16 @@ const SubjectsPage = () => {
   useEffect(() => {
     if (university && course && branch && year) {
       const universityData = Branches.universityName === university ? Branches : null;
-      
+
       if (universityData) {
         const courseData = universityData.courses.find((c) => c.courseName === course);
-        
+
         if (courseData) {
           const branchData = courseData.branches.find((b) => b.branchName === branch);
-          
+
           if (branchData) {
             const yearData = branchData.years.find((y) => y.year === year);
-            
+
             if (yearData) {
               setSubjects(yearData.subjects || []);
             } else {
@@ -83,30 +83,14 @@ const SubjectsPage = () => {
             {!error && subjects.length > 0 ? (
               <div className="d-flex flex-wrap justify-content-center">
                 {subjects.map((subject, index) => (
-                  <button
+                  <Button
                     key={index}
                     onClick={() => handleSubjectClick(subject)}
-                    className="btn m-2 rounded"
-                    style={{
-                      color: isDark ? "#ff6f61" : "#dc3545",
-                      backgroundColor: isDark ? "#333" : "#f8f9fa",
-                      border: `1px solid ${isDark ? "#ff6f61" : "#dc3545"}`,
-                      cursor: "pointer",
-                      transition: "all 0.3s ease",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = isDark ? "#ff6f61" : "#dc3545";
-                      e.currentTarget.style.color = isDark ? "#121212" : "#fff";
-                      e.currentTarget.style.transform = "scale(1.05)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = isDark ? "#333" : "#f8f9fa";
-                      e.currentTarget.style.color = isDark ? "#ff6f61" : "#dc3545";
-                      e.currentTarget.style.transform = "scale(1)";
-                    }}
+                    className="m-2 rounded"
+                    variant="outline"
                   >
                     {subject.subjectName}
-                  </button>
+                  </Button>
                 ))}
               </div>
             ) : (
