@@ -7,12 +7,14 @@ import SubjectsPage from "./components/SubjectSelect";
 import Content from "./components/Content";
 import Resources from './components/Resources';
 import SubjectDetails from "./components/SubjectDetails";
+import FAQ from "./components/FAQ"; 
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Upload from "./components/Upload";
 import About from "./components/About";
 import Contribute from "./components/Contribute";
+import More from "./components/More";
 
 function App() {
   return (
@@ -25,6 +27,15 @@ function App() {
         <main className="page-container">
           <div className="content-card">
             <Routes>
+              <Route
+                path="/"
+                element={
+                  <>
+                    <Search />
+                    <FAQ />
+                  </>
+                }
+              />
               <Route path="/" element={<Search />} />
               <Route path="/branch-year" element={<Branch />} />
               <Route path="/subjects" element={<SubjectsPage />} />
@@ -33,6 +44,7 @@ function App() {
               <Route path="/upload" element={<Upload />} />
               <Route path="/resources" element={<Resources />} />
               <Route path="/about" element={<About />} />
+              <Route path="/more" element={<More />} />
               <Route path="/contribute" element={<Contribute />} />
             </Routes>
           </div>
