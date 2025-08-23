@@ -10,7 +10,7 @@ const About = () => {
     return (
         <div className="min-h-screen py-8 px-4">
             <div className="max-w-4xl mx-auto">
-                <Card className="animate-in fade-in-50 duration-400">
+                <Card className="animate-in fade-in-50 duration-400 text-red-900">
                     <CardHeader className="pt-6">
                         <CardTitle className="text-3xl font-bold text-[#16213e] dark:text-white mb-2">📚 Pustak Ghar</CardTitle>
                         <CardDescription className="text-lg text-gray-600 dark:text-gray-300">

@@ -31,13 +31,13 @@ const Search = () => {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-45 from-rose-400 via-black to-white dark:from-zinc-800 dark:via-zinc-900 dark:to-zinc-700 bg-[length:400%_400%] animate-gradient">
       <div className="max-w-4xl w-full px-6 py-12">
         <div className="text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 ">
             CRUSH THE TEST, UNLEASH SUCCESS
           </h1>
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-red-500 dark:text-red-400">
             PUSTAK GHAR
           </h2>
-          <p className="text-lg md:text-xl mb-8 text-white dark:text-gray-300 leading-relaxed">
+          <p className="text-lg md:text-xl mb-8  dark:text-gray-300 leading-relaxed">
             FREE STUDY MATERIAL, NOTES, PYQS, VIDEO PLAYLISTS AND MORE...
           </p>
 
