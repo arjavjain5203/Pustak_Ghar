@@ -40,7 +40,7 @@ const NavBar = () => {
 
       <div className={`navbar-links ${menuOpen ? `show ${theme === "light" ? "bg-white" : "bg-dark"}` : ""}`}>
         <Link to="/" className={`nav-link ${theme === "light" ? "text-danger" : "text-danger-light"}`}>HOME</Link>
-        <Link to="/more" className={`nav-link ${theme === "light" ? "text-black" : "text-light"}`}>MORE</Link>
+        <Link to="/resources" className={`nav-link ${theme === "light" ? "text-black" : "text-light"}`}>MORE</Link>
         <Link to="/" className={`nav-link ${theme === "light" ? "text-black" : "text-light"}`}>JOIN</Link>
         <Link to="/about" className={`nav-link ${theme === "light" ? "text-danger" : "text-light"}`}>ABOUT</Link>
         <Link to="/contribute" className={`nav-link ${theme === "light" ? "text-danger" : "text-light"}`}>CONTRIBUTE</Link>

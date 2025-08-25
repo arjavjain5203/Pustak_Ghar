@@ -1,0 +1,160 @@
+/* src/components/Resources.css */
+/* Base Styles */
+.more-options-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: #000; /* Black text as requested */
+}
+
+/* Header Section */
+.more-options-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.more-options-header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  color: #000;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #333;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Options Grid */
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.option-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.option-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card-icon-container {
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  text-align: center;
+  color: #d10000; /* Brand red for icons */
+}
+
+.option-icon {
+  font-size: 2rem;
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+.card-content h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+  color: #000;
+}
+
+.card-content p {
+  color: #666;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.card-content ul {
+  margin: 1rem 0;
+  padding-left: 1.2rem;
+  color: #444;
+}
+
+.card-content li {
+  margin-bottom: 0.5rem;
+}
+
+.view-button {
+  width: 100%;
+  padding: 0.7rem;
+  background: white;
+  color: #d10000;
+  border: 1px solid #d10000;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.2s ease;
+}
+
+.view-button:hover {
+  background: #d10000;
+  color: white;
+}
+
+/* Quick Links */
+.quick-links-section {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.quick-links-section h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  color: #000;
+}
+
+.quick-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.quick-links button {
+  padding: 0.6rem 1.2rem;
+  background: #f5f5f5;
+  border: none;
+  border-radius: 20px;
+  color: #000;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.quick-links button:hover {
+  background: #d10000;
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .more-options-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .options-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .quick-links {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .quick-links button {
+    width: 100%;
+    max-width: 300px;
+  }
+}
