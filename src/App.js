@@ -49,9 +49,20 @@ function App() {
         </main>
 
         {/* Footer */}
-        <footer className="footer">
-          <p>📚 Pustak Ghar — Learn Better, Faster</p>
-        </footer>
+        <footer class="footer">
+        <div class="footer-content">
+          <h2 class="footer-title">Pustak Ghar</h2>
+          <p class="footer-text">
+            © 2025 Pustak Ghar. All rights reserved.
+          </p>
+          <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <span>|</span>
+            <a href="#">Terms of Service</a>
+          </div>
+        </div>
+</footer>
+
       </div>
     </Router>
   );
