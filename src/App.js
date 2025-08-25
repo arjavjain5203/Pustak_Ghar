@@ -1,13 +1,15 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
 import NavBar from "./components/NavBar";
 import Search from "./components/SearchBook";
 import Branch from "./components/SearchBranch";
 import SubjectsPage from "./components/SubjectSelect";
 import Content from "./components/Content";
-import Resources from './components/Resources';
+import Resources from "./components/Resources";
 import SubjectDetails from "./components/SubjectDetails";
-import FAQ from "./components/FAQ"; 
+import FAQ from "./components/FAQ";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
@@ -46,6 +48,8 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/more" element={<More />} />
               <Route path="/contribute" element={<Contribute />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
             </Routes>
           </div>
         </main>

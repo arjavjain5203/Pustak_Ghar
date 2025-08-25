@@ -45,6 +45,9 @@ const NavBar = () => {
         <Link to="/about" className={`nav-link ${theme === "light" ? "text-danger" : "text-light"}`}>ABOUT</Link>
         <Link to="/contribute" className={`nav-link ${theme === "light" ? "text-danger" : "text-light"}`}>CONTRIBUTE</Link>
         <Link to="/upload" className={`nav-link ${theme === "light" ? "text-black" : "text-light"}`}>UPLOAD</Link>
+        <Link to="/login" className={`nav-link ${theme === "light" ? "text-black" : "text-light"}`}>LOGIN</Link>
+        <Link to="/signup" className={`nav-link ${theme === "light" ? "text-black" : "text-light"}`}>SIGN UP</Link>
+
       </div>
 
       <div className="nav-controls" style={{ display: "flex", alignItems: "center" }}>
