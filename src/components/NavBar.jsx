@@ -63,7 +63,7 @@ const NavBar = () => {
             fontWeight: "bold",
           }}
         >
-          {theme === "light" ? "🌞 Light" : "🌙 Dark"}
+          {theme === "light" ? "🌙 Dark": "🌞 Light"}
         </button>
 
         <div
