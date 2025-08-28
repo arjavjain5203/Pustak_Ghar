@@ -8,6 +8,7 @@ import Content from "./components/Content";
 import Resources from './components/Resources';
 import SubjectDetails from "./components/SubjectDetails";
 import FAQ from "./components/FAQ"; 
+import PustakReviews from './components/PustakReviews';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
@@ -32,6 +33,7 @@ function App() {
                 element={
                   <>
                     <Search />
+                    <PustakReviews />
                     <FAQ />
                   </>
                 }

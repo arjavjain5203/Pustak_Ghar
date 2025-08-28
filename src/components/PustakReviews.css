@@ -1,0 +1,71 @@
+.review-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  padding: 3rem 2rem;
+  background: linear-gradient(to right, #2c0d0c, #1a0202); /* Dark maroon gradient */
+  color: #fff;
+}
+
+.review-card {
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(255, 76, 76, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.review-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(255, 76, 76, 0.2);
+}
+
+/* Card Themes */
+.review-card.dark {
+  background-color: #240b0b; /* Very dark red */
+  color: #fff;
+}
+
+.review-card.purple {
+  background-color: #6c1e1e; /* Dark crimson/maroon tone */
+  color: #fff;
+}
+
+.review-card.light {
+  background-color: #fff;
+  color: #1e0202;
+  border: 1px solid #ff4c4c33;
+}
+
+.review-card h4 {
+  margin-bottom: 0.3rem;
+  color: #ff4c4c; /* Accent red */
+}
+
+.verified {
+  display: block;
+  font-size: 0.85rem;
+  color: #ffaaaa;
+  margin-bottom: 1rem;
+}
+
+.highlight {
+  font-weight: bold;
+  font-size: 1.05rem;
+  margin-bottom: 0.6rem;
+  color: black;
+}
+
+.review-card.light .highlight {
+  color: #c0392b;
+}
+
+.text {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #ddd;
+}
+
+.review-card.light .text {
+  color: #333;
+}

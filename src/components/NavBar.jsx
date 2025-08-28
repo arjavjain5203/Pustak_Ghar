@@ -48,8 +48,8 @@ const NavBar = () => {
         <Link to="/" className={`nav-link ${theme === "light" ? "text-danger" : "text-danger-light"}`}>HOME</Link>
         <Link to="/resources" className={`nav-link ${theme === "light" ? "text-black" : "text-light"}`}>MORE</Link>
         <Link to="/" className={`nav-link ${theme === "light" ? "text-black" : "text-light"}`}>JOIN</Link>
-        <Link to="/about" className={`nav-link ${theme === "light" ? "text-danger" : "text-light"}`}>ABOUT</Link>
-        <Link to="/contribute" className={`nav-link ${theme === "light" ? "text-danger" : "text-light"}`}>CONTRIBUTE</Link>
+        <Link to="/about" className={`nav-link ${theme === "light" ? "text-black" : "text-light"}`}>ABOUT</Link>
+        <Link to="/contribute" className={`nav-link ${theme === "light" ? "text-black" : "text-light"}`}>CONTRIBUTE</Link>
         <Link to="/upload" className={`nav-link ${theme === "light" ? "text-black" : "text-light"}`}>UPLOAD</Link>
       </div>
 
@@ -69,7 +69,7 @@ const NavBar = () => {
             fontWeight: "bold",
           }}
         >
-          {theme === "light" ? "🌞 Light" : "🌙 Dark"}
+          {theme === "light" ? "🌙 Dark": "🌞 Light"}
         </button>
 
         <button
