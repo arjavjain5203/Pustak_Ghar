@@ -41,20 +41,16 @@
   font-size: 16px;
   font-weight: 500;
   transition: color 0.3s ease;
+  
 }
 
-.nav-link.text-danger {
-  color: red;
+
+
+.nav-link.text-black:hover {
+  color: red !important;
+
 }
 
-.nav-link.text-black {
-  color: black;
-}
-
-/* Hover Effect for Links */
-.nav-link:hover {
-  opacity: 0.8;
-}
 
 /* Hamburger Icon */
 .hamburger {
