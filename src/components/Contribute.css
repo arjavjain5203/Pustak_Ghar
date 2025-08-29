@@ -43,9 +43,11 @@
 .contribute-section ol {
     padding-left: 1.2rem;
 }
+
 [data-theme="dark"] .contribute-section {
     color: #0d0101;
 }
+
 .highlight {
     background: #f4ecec;
     border-radius: 4px;
