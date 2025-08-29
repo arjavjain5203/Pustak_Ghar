@@ -60,14 +60,49 @@
 
 /* ✨ Footer */
 .footer {
+  background: rgba(255, 255, 255, 0.15); /* glass effect */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+
+  padding: 20px 0;
   text-align: center;
-  padding: 15px;
-  background: rgba(0, 0, 0, 0.05);
-  font-size: 14px;
-  color: #000000;
-  backdrop-filter: blur(4px);
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-top: 40px;
+  font-family: "Segoe UI", sans-serif;
+  color: #fff; 
+}
+
+.footer-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  color: #ff4d4d; 
+}
+
+.footer-text {
+  font-size: 0.9rem;
+  margin: 10px 0;
+  color: #f0f0f0;
+}
+
+.footer-links {
+  margin-top: 8px;
+}
+
+.footer-links a {
+  color: #ffd700; 
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.footer-links span {
+  margin: 0 10px;
+  color: #ccc;
 }
 
 /* 🌙 Dark Mode Footer */
@@ -75,6 +110,33 @@
   background: rgba(255, 255, 255, 0.05);
   color: white;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 🌞 Light Mode Footer */
+[data-theme="light"] .footer {
+  background: rgba(255, 255, 255, 0.6); /* light glass effect */
+  color: #222;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .footer-title {
+  color: #cc0000; 
+}
+
+[data-theme="light"] .footer-text {
+  color: #333; 
+}
+
+[data-theme="light"] .footer-links a {
+  color: #0073e6; 
+}
+
+[data-theme="light"] .footer-links a:hover {
+  color: #000; 
+}
+
+[data-theme="light"] .footer-links span {
+  color: #666;
 }
 
 /* 🎭 Animation */

@@ -9,7 +9,12 @@ import SubjectsPage from "./components/SubjectSelect";
 import Content from "./components/Content";
 import Resources from "./components/Resources";
 import SubjectDetails from "./components/SubjectDetails";
+
 import FAQ from "./components/FAQ";
+
+import FAQ from "./components/FAQ"; 
+import PustakReviews from './components/PustakReviews';
+
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
@@ -34,6 +39,7 @@ function App() {
                 element={
                   <>
                     <Search />
+                    <PustakReviews />
                     <FAQ />
                   </>
                 }
@@ -55,9 +61,20 @@ function App() {
         </main>
 
         {/* Footer */}
-        <footer className="footer">
-          <p>📚 Pustak Ghar — Learn Better, Faster</p>
-        </footer>
+        <footer class="footer">
+        <div class="footer-content">
+          <h2 class="footer-title">Pustak Ghar</h2>
+          <p class="footer-text">
+            © 2025 Pustak Ghar. All rights reserved.
+          </p>
+          <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <span>|</span>
+            <a href="#">Terms of Service</a>
+          </div>
+        </div>
+</footer>
+
       </div>
     </Router>
   );
