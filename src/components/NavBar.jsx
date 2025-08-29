@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./NavBar.css";
 import NoHeaderPaths from "./NoNavbarpath";
@@ -8,11 +8,17 @@ const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [theme, setTheme] = useState("light");
   const { pathname } = useLocation();
+  const menuButtonRef = useRef(null);
 
   // Always call hooks unconditionally
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
+
+  // Close menu on route changes
+  useEffect(() => {
+    if (menuOpen) setMenuOpen(false);
+  }, [pathname]);
 
   // Early return if path matches no-navbar paths
   if (NoHeaderPaths().includes(pathname)) {
@@ -20,7 +26,7 @@ const NavBar = () => {
   }
 
   const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
+    setMenuOpen((v) => !v);
   };
 
   const toggleTheme = () => {
@@ -66,17 +72,18 @@ const NavBar = () => {
           {theme === "light" ? "🌙 Dark": "🌞 Light"}
         </button>
 
-        <div
-          className={`hamburger ${theme === "light" ? "text-black" : "text-light"}`}
+        <button
+          ref={menuButtonRef}
+          type="button"
+          className={`hamburger ${menuOpen ? "is-active" : ""} ${theme === "light" ? "text-black" : "text-light"}`}
+          aria-label="Toggle navigation menu"
+          aria-expanded={menuOpen}
           onClick={toggleMenu}
-          style={{ cursor: "pointer", fontSize: "1.5rem" }}
-          aria-label="Toggle menu"
-          role="button"
-          tabIndex={0}
-          onKeyDown={(e) => { if (e.key === "Enter") toggleMenu(); }}
         >
-          ☰
-        </div>
+          <span className="hamburger-box" aria-hidden="true">
+            <span className="hamburger-inner"></span>
+          </span>
+        </button>
       </div>
     </div>
   );
