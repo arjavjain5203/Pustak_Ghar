@@ -17,10 +17,11 @@
     margin-bottom: 0.5rem;
     font-weight: bold;
     color: #16213e;
+    transition: color 0.3s ease;
 }
 
 [data-theme="dark"] .about-title {
-    color: #0d0101;
+    color: #ff4d6d;
 }
 
 /* Tagline paragraph below title */
@@ -28,10 +29,11 @@
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
     color: #555;
+    transition: color 0.3s ease;
 }
 
 [data-theme="dark"] .about-tagline {
-    color: #0d0101;
+    color: #bbb;
 }
 
 /* Each section container */
@@ -46,10 +48,11 @@
     font-weight: 600;
     letter-spacing: 0.02em;
     color: #223072;
+    transition: color 0.3s ease;
 }
 
 [data-theme="dark"] .about-section h2 {
-    color: #0e349e;
+    color: #fff;
 }
 
 /* Lists inside sections */
@@ -63,20 +66,22 @@
     line-height: 1.6;
     margin-bottom: 0.7em;
     color: #333;
+    transition: color 0.3s ease;
 }
 
 [data-theme="dark"] .about-section ul li,
 [data-theme="dark"] .about-section ol li {
-    color: #0d0101;
+    color: #ccc;
 }
 
 /* Paragraphs inside sections */
 .about-section p {
     color: #363636;
+    transition: color 0.3s ease;
 }
 
 [data-theme="dark"] .about-section p {
-    color: #0d0101;
+    color: #ddd;
 }
 
 /* Override global page-container padding for about page to reduce space */
