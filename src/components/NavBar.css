@@ -48,10 +48,8 @@
   flex-shrink: 0;
 }
 
-/* Active link styles */
-.nav-link.active {
+.nav-link.text-danger {
   color: red;
-  font-weight: bold;
 }
 
 .nav-link.text-black {
@@ -144,7 +142,7 @@ select {
   color: white;
 }
 
-[data-theme="dark"] .nav-link.active {
+[data-theme="dark"] .nav-link.text-danger {
   color: #ff6f61; /* lighter red */
 }
 
@@ -172,7 +170,7 @@ select {
   color: black;
 }
 
-[data-theme="light"] .nav-link.active {
+[data-theme="light"] .nav-link.text-danger {
   color: red;
 }
 
