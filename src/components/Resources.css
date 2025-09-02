@@ -6,6 +6,7 @@
   margin: 0 auto;
   padding: 2rem;
   color: #000; /* Black text as requested */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Header Section */
@@ -20,6 +21,7 @@
   font-size: 2.2rem;
   margin-bottom: 0.5rem;
   color: #000;
+  transition: color 0.3s ease;
 }
 
 .subtitle {
@@ -27,6 +29,7 @@
   color: #333;
   max-width: 700px;
   margin: 0 auto;
+  transition: color 0.3s ease;
 }
 
 /* Options Grid */
@@ -41,7 +44,7 @@
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   overflow: hidden;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
 .option-card:hover {
@@ -54,6 +57,7 @@
   padding: 1.5rem;
   text-align: center;
   color: #d10000; /* Brand red for icons */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .option-icon {
@@ -68,18 +72,21 @@
   font-size: 1.3rem;
   margin-bottom: 0.8rem;
   color: #000;
+  transition: color 0.3s ease;
 }
 
 .card-content p {
   color: #666;
   margin-bottom: 1rem;
   font-size: 0.95rem;
+  transition: color 0.3s ease;
 }
 
 .card-content ul {
   margin: 1rem 0;
   padding-left: 1.2rem;
   color: #444;
+  transition: color 0.3s ease;
 }
 
 .card-content li {
@@ -96,7 +103,7 @@
   font-weight: 600;
   cursor: pointer;
   margin-top: 1rem;
-  transition: all 0.2s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .view-button:hover {
@@ -114,6 +121,7 @@
   font-size: 1.3rem;
   margin-bottom: 1.5rem;
   color: #000;
+  transition: color 0.3s ease;
 }
 
 .quick-links {
@@ -130,12 +138,82 @@
   border-radius: 20px;
   color: #000;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
 }
 
 .quick-links button:hover {
   background: #d10000;
   color: white;
+}
+
+/* Dark Mode Styles */
+[data-theme="dark"] .more-options-container {
+  background: #1e1e1e;
+}
+
+[data-theme="dark"] .more-options-header {
+  border-bottom: 1px solid #333;
+}
+
+[data-theme="dark"] .more-options-header h1 {
+  color: #ff4d6d;
+}
+
+[data-theme="dark"] .subtitle {
+  color: #bbb;
+}
+
+[data-theme="dark"] .option-card {
+  background: #1e1e1e;
+  border: 1px solid #333;
+  color: #ddd;
+}
+
+[data-theme="dark"] .option-card:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+
+[data-theme="dark"] .card-icon-container {
+  background-color: #2a2a2a;
+  color: #ff4d6d;
+}
+
+[data-theme="dark"] .card-content h2 {
+  color: #fff;
+}
+
+[data-theme="dark"] .card-content p {
+  color: #bbb;
+}
+
+[data-theme="dark"] .card-content ul {
+  color: #ccc;
+}
+
+[data-theme="dark"] .view-button {
+  background: #1e1e1e;
+  color: #ff4d6d;
+  border: 1px solid #ff4d6d;
+}
+
+[data-theme="dark"] .view-button:hover {
+  background: #ff4d6d;
+  color: #fff;
+}
+
+[data-theme="dark"] .quick-links-section h3 {
+  color: #fff;
+}
+
+[data-theme="dark"] .quick-links button {
+  background: #2a2a2a;
+  color: #ddd;
+  border: 1px solid #333;
+}
+
+[data-theme="dark"] .quick-links button:hover {
+  background: #ff4d6d;
+  color: #fff;
 }
 
 /* Responsive Design */

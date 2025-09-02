@@ -9,42 +9,61 @@
     margin-bottom: 0.5rem;
     font-weight: bold;
     color: #23468f;
+    transition: color 0.3s ease;
 }
 
 [data-theme="dark"] .contribute-title {
-    color: #0d0101;
+    color: #ff4d6d;
 }
 
 .contribute-tagline {
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
     color: #555;
+    transition: color 0.3s ease;
 }
 
 [data-theme="dark"] .contribute-tagline {
-    color: #0d0101;
+    color: #bbb;
 }
 
 .contribute-section {
     margin-bottom: 1.6rem;
+    transition: color 0.3s ease;
 }
 
 .contribute-section h2 {
     font-size: 1.18rem;
     margin-bottom: 0.5rem;
     color: #223072;
-}
-
-[data-theme="dark"] .contribute-section h2 {
-    color: #0e349e;
+    transition: color 0.3s ease;
 }
 
 .contribute-section ul,
 .contribute-section ol {
     padding-left: 1.2rem;
 }
+
+.contribute-section a {
+    transition: color 0.3s ease;
+}
+
+pre {
+    background: #f5f5f5;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+    border: 1px solid #e0e0e0;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
 [data-theme="dark"] .contribute-section {
-    color: #0d0101;
+    color: #ddd;
+}
+
+[data-theme="dark"] .contribute-section h2 {
+    color: #fff;
 }
 .highlight {
     background: #f4ecec;
@@ -73,13 +92,14 @@
     padding: 8px 10px;
     text-decoration: none;
     color: inherit;
-    transition: box-shadow 0.2s;
+    transition: box-shadow 0.2s, background-color 0.3s ease, transform 0.2s;
     min-width: 88px;
 }
 
 .contributor-profile:hover {
     box-shadow: 0 2px 18px rgba(100, 149, 237, 0.14);
     transform: translateY(-3px) scale(1.04);
+    text-decoration: none;
 }
 
 .contributor-avatar {
@@ -88,4 +108,70 @@
     border-radius: 50%;
     margin-bottom: 5px;
     box-shadow: 0 2px 10px rgba(100, 149, 237, 0.09);
+}
+
+/* Dark Mode Styles for Contributor Cards */
+[data-theme="dark"] .contributor-profile {
+    background: rgba(255, 77, 109, 0.15);
+    color: #fff;
+}
+
+[data-theme="dark"] .contributor-profile:hover {
+    box-shadow: 0 2px 18px rgba(255, 77, 109, 0.2);
+}
+
+/* Dark Mode Styles for Links */
+[data-theme="dark"] .contribute-section a {
+    color: #ff4d6d;
+}
+
+[data-theme="dark"] .contribute-section a:hover {
+    color: #ff6b8a;
+}
+
+/* Dark Mode Styles for Code Blocks */
+[data-theme="dark"] pre {
+    background: #2a2a2a;
+    color: #f0f0f0;
+    border: 1px solid #444;
+}
+
+/* Dark Mode Styles for Step Icons and Text */
+[data-theme="dark"] .contribute-steps-list li {
+    color: #ddd;
+}
+
+[data-theme="dark"] .step-icon {
+    filter: brightness(1.2);
+}
+
+/* Dark Mode Styles for Loading Text and Lists */
+[data-theme="dark"] .contribute-section p {
+    color: #ddd;
+}
+
+[data-theme="dark"] .contribute-section ul li,
+[data-theme="dark"] .contribute-section ol li {
+    color: #ddd;
+}
+
+[data-theme="dark"] .contribute-section ul li strong,
+[data-theme="dark"] .contribute-section ol li strong {
+    color: #fff;
+}
+
+[data-theme="dark"] .contribute-section span {
+    color: #ccc;
+}
+
+/* Dark Mode Styles for Emphasis and Strong Text */
+[data-theme="dark"] .contribute-section em {
+    color: #ff9ab7;
+    font-style: italic;
+}
+
+/* Dark Mode Styles for Contributor Names */
+[data-theme="dark"] .contributor-profile span {
+    color: #fff;
+    font-weight: 500;
 }
