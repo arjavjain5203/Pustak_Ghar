@@ -186,6 +186,17 @@ const Upload = () => {
       });
 
       setPopup({ show: true, type: 'success', message: 'Upload successful! Your contribution has been submitted.' });
+      
+      setData({
+        university: "",
+        course: "",
+        branch: "",
+        year: "",
+        subject: "",
+        link: "",
+      });
+      setFile(null);
+      
       setTimeout(() => {
         navigate("/");
       }, 2000);
