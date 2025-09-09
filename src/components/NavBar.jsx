@@ -51,10 +51,23 @@ const NavBar = () => {
         <Link to="/about" className={`nav-link ${pathname === "/about" ? "active" : ""}`}>ABOUT</Link>
         <Link to="/contribute" className={`nav-link ${pathname === "/contribute" ? "active" : ""}`}>CONTRIBUTE</Link>
         <Link to="/upload" className={`nav-link ${pathname === "/upload" ? "active" : ""}`}>UPLOAD</Link>
+
+        {/* Dark/Light toggle for mobile */}
+        <div className="mobile-theme-toggle">
+          <button
+          onClick={toggleTheme}
+          aria-label="Toggle light/dark theme"
+          className={`theme-toggle-btn ${theme}`}
+          >
+            {theme === "light" ? "🌙 Dark" : "🌞 Light"}
+          </button>
+        </div>
       </div>
 
       <div className="nav-controls" style={{ display: "flex", alignItems: "center" }}>
-        <button
+        {/* Desktop toggle only */}
+        <div className="desktop-theme-toggle">
+         <button
           onClick={toggleTheme}
           aria-label="Toggle light/dark theme"
           className={`theme-toggle-btn ${theme}`}
@@ -70,7 +83,8 @@ const NavBar = () => {
           }}
         >
           {theme === "light" ? "🌙 Dark": "🌞 Light"}
-        </button>
+         </button>
+        </div>
 
         <button
           ref={menuButtonRef}
