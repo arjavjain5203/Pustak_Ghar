@@ -180,6 +180,17 @@ select {
   color: black;
 }
 
+/* Hide desktop toggle on mobile */
+.desktop-theme-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.mobile-theme-toggle {
+  display: none;
+  margin-top: 10px; /* spacing inside menu */
+}
+
 /* -------- Mobile Responsive -------- */
 @media (max-width: 768px) {
   .navbar-links {
@@ -206,4 +217,20 @@ select {
   }
 
   .hamburger { display: block; }
+
+  .desktop-theme-toggle {
+    display: none; /* hide desktop toggle */
+  }
+
+  .mobile-theme-toggle {
+    display: flex; /* show inside hamburger menu */
+    justify-content: flex-start;
+  }
+  
+  .theme-toggle-btn {
+    width: 100%;
+    text-align: left;
+    padding: 0.5rem 0.7rem;
+    border-radius: 6px;
+  }
 }
