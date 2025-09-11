@@ -1,0 +1,256 @@
+:root {
+  --hightlight-text: #e63946;
+  --dark-red: #c1121f;
+}
+.join-container {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  max-width: 1200px;
+  margin: 1rem auto;
+  padding: 1rem;
+  color: #000;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* styles for hero section */
+.read-animation {
+  position: fixed;  
+  top: 15px;
+  left: 20px;
+  width: 70px; 
+  height: auto;
+  z-index: 1000;
+  pointer-events: none; 
+}
+
+.hero-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+}
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  font-weight: bold;
+  position: relative;
+}
+
+.join-highlight {
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--hightlight-text);
+}
+.tooltip-box {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  bottom: 3rem;
+  left: 12px;
+  font-size: 1rem;
+  color: #444;
+  margin: 1rem;
+  padding: 0.5rem 2rem;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
+.hero-content h1:hover .tooltip-box {
+  visibility: visible;
+  opacity: 1;
+}
+.hero-content p {
+  padding: 0 2.5rem;
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  line-height: 1.6;
+  text-align: center;
+  color: #444;
+}
+.hero-button {
+  display: flex;
+  justify-content: center;
+}
+.hero-content button {
+  white-space: nowrap;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+.btn-primary,
+.btn-secondary {
+  padding: 12px 25px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  margin: 1rem 0.5rem;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
+  color: #000;
+}
+.btn-primary {
+  color: #fff;
+  background-color: var(--hightlight-text);
+}
+.btn-primary:hover {
+  background-color: var(--dark-red);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #000 !important;
+  backdrop-filter: blur(4px);
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 5px 21px rgba(252, 71, 71, 0.4);
+}
+
+/* styles for join form */
+.join-form-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 20px;
+  /* background-color: #f9f9f9; */
+}
+.join-form-card {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  max-width: 520px;
+  width: 100%;
+  text-align: center;
+}
+.join-form-card h2 {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+.join-form-card .join-subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+.card-highlight {
+  font-size: 1.4rem;
+  color: var(--hightlight-text);
+  font-weight: bold;
+}
+.form-group {
+  margin-bottom: 18px;
+  text-align: left;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333;
+}
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border 0.3s;
+}
+.form-group input:focus {
+  border-color: var(--hightlight-text);
+}
+.login-text {
+  margin-top: 20px;
+  font-size: 0.95rem;
+  color: #444;
+}
+.login-text a {
+  color: var(--hightlight-text);
+  font-weight: 600;
+  text-decoration: none;
+}
+.login-text a:hover {
+  text-decoration: underline;
+}
+.error {
+  color: var(--hightlight-text);
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+/* perks section styles */
+.perks-section {
+  padding: 60px 20px;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(247, 97, 97, 0.4);
+}
+
+.perks-section h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+.perks-section .highlight {
+  color: #e63946;
+}
+
+.perks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.perk-card {
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 25px 20px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.perk-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.perk-icon {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+  transition: transform 0.3s all;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.perk-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.perk-card p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+}
