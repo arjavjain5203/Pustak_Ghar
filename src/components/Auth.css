@@ -1,0 +1,79 @@
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom right, #2c0e2d, #000000);
+    color: #fff;
+  }
+  
+  .form-box {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 30px;
+    width: 350px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #ff3f5f;
+  }
+  
+  .subtitle {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #f0dcdc;
+  }
+  
+  .subtitle span {
+    color: #ff3f5f;
+    font-weight: bold;
+  }
+  
+  form input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+  }
+  
+  form input:focus {
+    outline: 2px solid #ff3f5f;
+  }
+  
+  form input::placeholder {
+    color: #bbb; /* make placeholder readable */
+  }
+  button {
+    width: 100%;
+    padding: 12px;
+    background: #c72b4d;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background: #a5223c;
+  }
+  
+  .switch {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.9rem;
+  }
+  
+  .switch a {
+    color: #ff3f5f;
+    text-decoration: none;
+  }
+  

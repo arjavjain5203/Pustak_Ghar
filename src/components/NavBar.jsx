@@ -45,6 +45,16 @@ const NavBar = () => {
       </Link>
 
       <div className={`navbar-links ${menuOpen ? `show ${theme === "light" ? "bg-white" : "bg-dark"}` : ""}`}>
+
+        <Link to="/" className={`nav-link ${theme === "light" ? "text-danger" : "text-danger-light"}`}>HOME</Link>
+        <Link to="/resources" className={`nav-link ${theme === "light" ? "text-black" : "text-light"}`}>MORE</Link>
+        <Link to="/" className={`nav-link ${theme === "light" ? "text-black" : "text-light"}`}>JOIN</Link>
+        <Link to="/about" className={`nav-link ${theme === "light" ? "text-black" : "text-light"}`}>ABOUT</Link>
+        <Link to="/contribute" className={`nav-link ${theme === "light" ? "text-black" : "text-light"}`}>CONTRIBUTE</Link>
+        <Link to="/upload" className={`nav-link ${theme === "light" ? "text-black" : "text-light"}`}>UPLOAD</Link>
+        <Link to="/login" className={`nav-link ${theme === "light" ? "text-black" : "text-light"}`}>LOGIN</Link>
+        <Link to="/signup" className={`nav-link ${theme === "light" ? "text-black" : "text-light"}`}>SIGN UP</Link>
+
         <Link to="/" className={`nav-link ${pathname === "/" ? "active" : ""}`}>HOME</Link>
         <Link to="/resources" className={`nav-link ${pathname === "/resources" ? "active" : ""}`}>MORE</Link>
         <Link to="/join" className={`nav-link ${pathname === "/join" ? "active" : ""}`}>JOIN</Link>
@@ -62,6 +72,7 @@ const NavBar = () => {
             {theme === "light" ? "🌙 Dark" : "🌞 Light"}
           </button>
         </div>
+
       </div>
 
       <div className="nav-controls" style={{ display: "flex", alignItems: "center" }}>
