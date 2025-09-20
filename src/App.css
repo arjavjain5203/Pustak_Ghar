@@ -48,13 +48,14 @@
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
   border-radius: 16px;
   padding: 25px;
-  animation: fadeInUp 0.4s ease-in-out;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 0.5s ease-in-out;
+  transition: background-color 0.5s ease, box-shadow 0.5s ease, backdrop-filter 0.5s ease;
 }
 
 /* 🌙 Dark Mode Content Card */
 [data-theme="dark"] .content-card {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(30, 30, 30, 0.95);
+  backdrop-filter: blur(12px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 

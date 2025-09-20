@@ -35,16 +35,17 @@ const NavBar = () => {
 
   return (
     <div className={`navbar-container ${theme === "light" ? "bg-white" : "bg-dark"}`}>
-      <Link to="/"  className={`nav-link ${theme === "light" ? "text-danger" : "text-danger-light"}`}>
+      <Link to="/"  className="nav-link"> 
         <div className="navbar-logo">
           <img src={Logo} alt="Logo" className="logo-img" />
           <p className={`logo-text ${theme === "light" ? "text-black" : "text-light"}`}>
-            <span className="text-danger">Pustak</span> <span>Ghar</span>
+            <span style={{ color: theme === "light" ? "red" : "#ff6f61" }}>Pustak</span> <span>Ghar</span>
           </p>
         </div>
       </Link>
 
       <div className={`navbar-links ${menuOpen ? `show ${theme === "light" ? "bg-white" : "bg-dark"}` : ""}`}>
+
         <Link to="/" className={`nav-link ${theme === "light" ? "text-danger" : "text-danger-light"}`}>HOME</Link>
         <Link to="/resources" className={`nav-link ${theme === "light" ? "text-black" : "text-light"}`}>MORE</Link>
         <Link to="/" className={`nav-link ${theme === "light" ? "text-black" : "text-light"}`}>JOIN</Link>
@@ -54,10 +55,30 @@ const NavBar = () => {
         <Link to="/login" className={`nav-link ${theme === "light" ? "text-black" : "text-light"}`}>LOGIN</Link>
         <Link to="/signup" className={`nav-link ${theme === "light" ? "text-black" : "text-light"}`}>SIGN UP</Link>
 
+        <Link to="/" className={`nav-link ${pathname === "/" ? "active" : ""}`}>HOME</Link>
+        <Link to="/resources" className={`nav-link ${pathname === "/resources" ? "active" : ""}`}>MORE</Link>
+        <Link to="/join" className={`nav-link ${pathname === "/join" ? "active" : ""}`}>JOIN</Link>
+        <Link to="/about" className={`nav-link ${pathname === "/about" ? "active" : ""}`}>ABOUT</Link>
+        <Link to="/contribute" className={`nav-link ${pathname === "/contribute" ? "active" : ""}`}>CONTRIBUTE</Link>
+        <Link to="/upload" className={`nav-link ${pathname === "/upload" ? "active" : ""}`}>UPLOAD</Link>
+
+        {/* Dark/Light toggle for mobile */}
+        <div className="mobile-theme-toggle">
+          <button
+          onClick={toggleTheme}
+          aria-label="Toggle light/dark theme"
+          className={`theme-toggle-btn ${theme}`}
+          >
+            {theme === "light" ? "🌙 Dark" : "🌞 Light"}
+          </button>
+        </div>
+
       </div>
 
       <div className="nav-controls" style={{ display: "flex", alignItems: "center" }}>
-        <button
+        {/* Desktop toggle only */}
+        <div className="desktop-theme-toggle">
+         <button
           onClick={toggleTheme}
           aria-label="Toggle light/dark theme"
           className={`theme-toggle-btn ${theme}`}
@@ -73,7 +94,8 @@ const NavBar = () => {
           }}
         >
           {theme === "light" ? "🌙 Dark": "🌞 Light"}
-        </button>
+         </button>
+        </div>
 
         <button
           ref={menuButtonRef}
