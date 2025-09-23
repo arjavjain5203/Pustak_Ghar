@@ -1,3 +1,16 @@
+/* 🎨 Global Color Palette */
+:root {
+  --primary: #ff4d4d;      /* Accent red */
+  --secondary: #ffd700;    /* Accent gold */
+  --link: #4db6ac;         /* Teal accent */
+  --text-dark: #222;
+  --text-light: #f0f0f0;
+  --heading-light: #111;
+  --heading-dark: #ff6b6b; /* Brighter red for dark mode headings */
+  --card-light: rgba(255, 255, 255, 0.7);
+  --card-dark: rgba(30, 30, 30, 0.95);
+}
+
 /* 🌟 App Wrapper */
 .app-wrapper {
   display: flex;
@@ -8,6 +21,7 @@
     url("https://plus.unsplash.com/premium_photo-1677567996070-68fa4181775a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bGlicmFyeXxlbnwwfHwwfHx8MA%3D%3D")
     center/cover no-repeat fixed;
   transition: background 0.3s ease, color 0.3s ease;
+  color: var(--text-dark);
 }
 
 /* 🌙 Dark Mode Background */
@@ -16,7 +30,7 @@
     linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
     url("https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=928&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
     center/cover no-repeat fixed;
-  color: white;
+  color: var(--text-light);
 }
 
 /* 📌 Fixed Navbar Styling */
@@ -43,7 +57,7 @@
 .content-card {
   width: 100%;
   max-width: 1100px;
-  background: rgba(255, 255, 255, 0.7);
+  background: var(--card-light);
   backdrop-filter: blur(12px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
   border-radius: 16px;
@@ -54,9 +68,27 @@
 
 /* 🌙 Dark Mode Content Card */
 [data-theme="dark"] .content-card {
-  background: rgba(30, 30, 30, 0.95);
+  background: var(--card-dark);
   backdrop-filter: blur(12px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* ✨ Typography */
+h1, h2, h3 {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+[data-theme="light"] h1, 
+[data-theme="light"] h2, 
+[data-theme="light"] h3 {
+  color: var(--primary);
+}
+
+[data-theme="dark"] h1, 
+[data-theme="dark"] h2, 
+[data-theme="dark"] h3 {
+  color: var(--heading-dark);
 }
 
 /* ✨ Footer */
@@ -70,20 +102,20 @@
   text-align: center;
   margin-top: 40px;
   font-family: "Segoe UI", sans-serif;
-  color: #fff; 
+  color: var(--text-light); 
 }
 
 .footer-title {
   font-size: 1.5rem;
   font-weight: 600;
   margin: 0;
-  color: #ff4d4d; 
+  color: var(--primary); 
 }
 
 .footer-text {
   font-size: 0.9rem;
   margin: 10px 0;
-  color: #f0f0f0;
+  color: var(--text-light);
 }
 
 .footer-links {
@@ -91,14 +123,14 @@
 }
 
 .footer-links a {
-  color: #ffd700; 
+  color: var(--link); 
   text-decoration: none;
   font-size: 0.9rem;
   transition: color 0.3s;
 }
 
 .footer-links a:hover {
-  color: #fff;
+  color: var(--secondary);
 }
 
 .footer-links span {
@@ -109,31 +141,31 @@
 /* 🌙 Dark Mode Footer */
 [data-theme="dark"] .footer {
   background: rgba(255, 255, 255, 0.05);
-  color: white;
+  color: var(--text-light);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* 🌞 Light Mode Footer */
 [data-theme="light"] .footer {
   background: rgba(255, 255, 255, 0.6); /* light glass effect */
-  color: #222;
+  color: var(--text-dark);
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 [data-theme="light"] .footer-title {
-  color: #cc0000; 
+  color: var(--primary); 
 }
 
 [data-theme="light"] .footer-text {
-  color: #333; 
+  color: var(--text-dark); 
 }
 
 [data-theme="light"] .footer-links a {
-  color: #0073e6; 
+  color: var(--link); 
 }
 
 [data-theme="light"] .footer-links a:hover {
-  color: #000; 
+  color: var(--secondary); 
 }
 
 [data-theme="light"] .footer-links span {
