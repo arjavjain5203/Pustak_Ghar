@@ -53,7 +53,6 @@ const PustakReviews = () => {
         <div key={index} className={`review-card ${review.theme}`}>
           <h4>{review.name}</h4>
           <span className="verified">{review.title}</span>
-          <p className="highlight">“ {review.highlight} ”</p>
           <p className="text">{review.text}</p>
         </div>
       ))}
