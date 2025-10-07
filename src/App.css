@@ -196,3 +196,34 @@ h1, h2, h3 {
 .about-title {
   margin-top: 0 !important;
 }
+/* 🎨 Fix default "Choose File" input styling for dark theme */
+[data-theme="dark"] input[type="file"] {
+  background-color: #000 !important;        /* black background */
+  color: var(--text-light) !important;      /* white text */
+  border: 1px solid var(--heading-dark);    /* red accent border */
+  border-radius: 6px;
+  padding: 6px;
+}
+
+/* Optional: refine hover effect */
+[data-theme="dark"] input[type="file"]:hover {
+  border-color: var(--secondary);           /* gold hover border */
+  cursor: pointer;
+}
+
+/* Ensure text color for file name stays visible */
+[data-theme="dark"] input[type="file"]::file-selector-button {
+  background-color: #000 !important;
+  color: var(--text-light) !important;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect for the "Choose File" button itself */
+[data-theme="dark"] input[type="file"]::file-selector-button:hover {
+  background-color: var(--heading-dark);
+  color: #fff;
+}
