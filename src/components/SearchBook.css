@@ -101,7 +101,7 @@ button {
 }
 
 button:hover {
-  background-color: #ff0000;
+  background-color: #f8073b;
   color: white;
   transform: scale(1.1);
 }
