@@ -44,6 +44,7 @@ const Join = () => {
   }
 
   const [errors, setErrors] = useState({});
+  const [isLogin, setIsLogin] = useState(false);
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -51,17 +52,14 @@ const Join = () => {
     });
   };
   const validate = () => {
-    let newErrors = {};
-    if (!formData.name.trim()) newErrors.name = "Name is Required";
-    if (!formData.email.trim()) newErrors.email = "Email is Required";
-    if (!formData.password.trim()) {
-      newErrors.password = "Password is required";
-    }
-    if (!formData.role.trim()) {
-      newErrors.role = "Please choose a role";
-    }
-    return newErrors;
-  };
+  let newErrors = {};
+  if (!isLogin && !formData.name.trim()) newErrors.name = "Name is Required";
+  if (!formData.email.trim()) newErrors.email = "Email is Required";
+  if (!formData.password.trim()) newErrors.password = "Password is required";
+  if (!isLogin && !formData.role.trim()) newErrors.role = "Please choose a role";
+  return newErrors;
+};
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const validationErrors = validate();
@@ -119,63 +117,100 @@ const Join = () => {
             today!
           </p>
           <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label htmlFor="name">Full Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Enter Your Full Name.."
-              />
-              {errors.name && <p className="error">{errors.name}</p>}
-            </div>
-            <div className="form-group">
-              <label htmlFor="email">Eamil</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="Enter Your Email.."
-              />
-              {errors.email && <p className="error"> {errors.email}</p>}
-            </div>
-            <div className="form-group">
-              <label htmlFor="password">Enter Password</label>
-              <input
-                type="password"
-                id="password"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-                placeholder="Enter Your Password"
-              />
-              {errors.password && <p className="error"> {errors.email}</p>}
-            </div>
-            <div className="form-group">
-              <label> Join Us</label>
-              <select
-                defaultValue={""}
-                name="role"
-                value={formData.role}
-                onChange={handleChange}
-              >
-                <option value="" disabled>
-                  -- Choose Role --
-                </option>
-                <option value="reader">📚 Reader</option>
-                <option value="contributor">✍️ Contributor</option>
-              </select>
-            </div>
-            <button type="submit" className="btn-primary">
-              Join Now
-            </button>
-            <p className="login-text">
-              Already have an account ? <a href="/login">Log in</a>
-            </p>
+            {/* Full Name - only for Register */}
+{!isLogin && (
+  <div className="form-group">
+    <label htmlFor="name">Full Name</label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      value={formData.name}
+      onChange={handleChange}
+      placeholder="Enter Your Full Name.."
+    />
+    {errors.name && <p className="error">{errors.name}</p>}
+  </div>
+)}
+
+{/* Email */}
+<div className="form-group">
+  <label htmlFor="email">Email</label>
+  <input
+    type="email"
+    id="email"
+    name="email"
+    value={formData.email}
+    onChange={handleChange}
+    placeholder="Enter Your Email.."
+  />
+  {errors.email && <p className="error">{errors.email}</p>}
+</div>
+
+{/* Password */}
+<div className="form-group">
+  <label htmlFor="password">Password</label>
+  <input
+    type="password"
+    id="password"
+    name="password"
+    value={formData.password}
+    onChange={handleChange}
+    placeholder="Enter Your Password"
+  />
+  {errors.password && <p className="error">{errors.password}</p>}
+</div>
+
+{/* Role - only for Register */}
+{!isLogin && (
+  <div className="form-group">
+    <label> Join Us</label>
+    <select
+      defaultValue={""}
+      name="role"
+      value={formData.role}
+      onChange={handleChange}
+    >
+      <option value="" disabled>
+        -- Choose Role --
+      </option>
+      <option value="reader">📚 Reader</option>
+      <option value="contributor">✍️ Contributor</option>
+    </select>
+    {errors.role && <p className="error">{errors.role}</p>}
+  </div>
+)}
+
+{/* Submit button */}
+<button type="submit" className="btn-primary">
+  {isLogin ? "Login" : "Join Now"}
+</button>
+
+{/* Toggle link */}
+<p className="login-text">
+  {isLogin ? (
+    <>
+      Don't have an account?{" "}
+      <span
+        style={{ color: "var(--hightlight-text)", cursor: "pointer" }}
+        onClick={() => setIsLogin(false)}
+      >
+        Register
+      </span>
+    </>
+  ) : (
+    <>
+      Already have an account?{" "}
+      <span
+        style={{ color: "var(--hightlight-text)", cursor: "pointer" }}
+        onClick={() => setIsLogin(true)}
+      >
+        Login
+      </span>
+    </>
+  )}
+</p>
+
           </form>
         </div>
       </section>
